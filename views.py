@@ -1,12 +1,12 @@
 from flask import Flask, jsonify, request
-# from draft import get_books_by_subject
+from ella_code_draft import get_books_by_subject
 # from draft_config import MY_API_KEY
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def index():
+def home():
     with open('home.html', 'r') as file:
         return file.read()
 
@@ -19,18 +19,13 @@ def process():
     selected_min_published_date = int(request.form['year_published_min'])
     selected_max_published_date = int(request.form['year_published_max'])
     # You can now use the 'selected_' values in your Python code
-    return f'''
+    print(f'''
     Category: {selected_category}
     Book Length: {selected_book_length}
     Published Between: {selected_min_published_date} - {selected_max_published_date}
-'''
-
-
-# @app.route('/results/<subject>')
-# def display_books(subject):
-#     print('API SERVER SAYS:', subject)
-#     res = get_books_by_subject(subject, MY_API_KEY)
-#     return jsonify(res)
+''')
+    results = get_books_by_subject(selected_category, selected_book_length, selected_min_published_date, selected_max_published_date)
+    return jsonify(results)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,4 @@
 def format_category_for_search(category):
-
     if category == "Fantasy":
         formatted_category = "bestselling+fantasy"
         return formatted_category
@@ -10,5 +9,3 @@ def format_category_for_search(category):
 
     else:
         return category
-
-

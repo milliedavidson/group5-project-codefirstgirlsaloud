@@ -7,14 +7,14 @@ from filters import (
     get_published_year,
     book_in_date_range,
     get_book_length,
-    book_matches_length,
+    book_matches_length
 )
 from config import (
     user_input_subject,
     desired_book_length,
     start_year_input,
     end_year_input,
-    order_by_input,
+    order_by_input
 )
 
 

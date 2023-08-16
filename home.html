@@ -8,7 +8,7 @@
 <h1>CHAPTER ONE</h1>
 <h2>Where adventures in literature begin</h2>
 
-<form action="/process" method="POST">
+<form action="/results" method="POST">
     <div>
         <label for="genre">Genre</label>
         <select id="genre" onchange="updateCategories()">
@@ -57,9 +57,35 @@
             categorySelect.innerHTML = "";
 
             if (selectedGenre === "fiction") {
-                var categories = ["General", "Absurdist", "Action & Adventure"];
+                var categories = [
+                "Classics",
+                "Crime",
+                "Dystopian",
+                "Fantasy",
+                "Graphic Novels",
+                "Historical",
+                "Horror",
+                "LGBTQ+",
+                "Literary",
+                "Mystery & Detective",
+                "Romance",
+                "Science Fiction",
+                "Thriller"
+                ];
             } else if (selectedGenre === "non-fiction") {
-                var categories = ["Architecture", "Art", "Biography & Autobiography"];
+                var categories = [
+                "Business",
+                "Cooking",
+                "Crafts",
+                "Gardening",
+                "Music",
+                "Nature",
+                "Philosophy",
+                "Politics",
+                "Religion",
+                "Travel",
+                "True Crime"
+                ];
             }
 
             for (var i = 0; i < categories.length; i++) {
@@ -72,6 +98,7 @@
 
         // Initialize the categories based on the default genre selection
         updateCities();
+
 
 </script>
 

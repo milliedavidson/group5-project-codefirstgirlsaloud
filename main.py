@@ -1,6 +1,7 @@
 from book import Book
 from api import call_api_endpoint
 from filters import (
+    get_book_id,
     is_excluded_category,
     rating_too_low,
     get_published_year,
@@ -33,8 +34,8 @@ def fetch_books(subject, book_length, start_year, end_year, order_by, min_result
                 # Create book instance
                 book = Book(item)
 
-                #
-                book_id = book.get_book_id
+                # Get necessary data
+                book_id = get_book_id(book)
                 book.length = get_book_length(book)
                 published_year = get_published_year(book)
 
@@ -48,9 +49,11 @@ def fetch_books(subject, book_length, start_year, end_year, order_by, min_result
                     continue
 
                 # Check date range and book length
-                if book_in_date_range(
-                    published_year, start_year, end_year
-                ) and book_matches_length(book, book_length):
+                if (
+                    published_year is not None
+                    and book_in_date_range(published_year, start_year, end_year)
+                    and book_matches_length(book, book_length)
+                ):
                     results.append(book)  # Add book to results
 
             except KeyError:

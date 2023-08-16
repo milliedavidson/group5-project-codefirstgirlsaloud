@@ -1,3 +1,7 @@
+def get_book_id(book):
+    return book.title, book.authors
+
+
 def is_excluded_category(book):
     excluded = ["juvenile", "children", "young adult"]
     return any(cat in excluded for cat in book.categories)

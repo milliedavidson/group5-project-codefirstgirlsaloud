@@ -24,6 +24,3 @@ class Book:
             f"Image: {self.thumbnail}\n"
             f"{'=' * 40}"
         )
-
-    def get_book_id(self):
-        return self.title, self.authors

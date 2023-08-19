@@ -9,6 +9,6 @@ def create_book_dict(item):
         "average_rating": item["volumeInfo"].get("averageRating", 0),
         "price": (item.get("saleInfo", {}).get("retailPrice", {}).get("amount", "N/A")),
         "thumbnail": item["volumeInfo"]["imageLinks"].get("thumbnail", "N/A"),
-        "page_count": item["volumeInfo"].get("pageCount", 0),
+        "page_count": item["volumeInfo"].get("pageCount", 0)
     }
     return book_dict

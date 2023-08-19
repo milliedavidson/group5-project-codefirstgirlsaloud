@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter One</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        <h1 class="website-name"> Chapter One</h1>
+        <h2 class="website-tagline">Where adventures in literature begin</h2>
+    </header>
+
+    <section class="menus" container>
+        <h2 class="section-header"> Use the options below to specify what you would like to read:</h2>
+        <form action="/" method="POST">
+            <div class="genre-menu">
+                <label for="genre">Fiction or Non-Fiction?</label>
+                <div class="genre-select">
+                    <select id="genre" onchange="updateCategories()">
+                        <option value="0">I am interested in reading...</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                    </select><br>
+                </div>
+            </div>
+
+            <div class="category">
+                <label for="category">What genre?</label>
+                <div class="category-select">
+                    <select id="category" name="categories">
+                        <!--                Categories will be dynamically generated based on genre using JS script at bottom of html body-->
+                    </select><br>
+                </div>
+            </div>
+
+            <div class="length">
+                <label for="book_length"> What length?</label>
+                <div class="length-buttons">
+                    <input type="radio" name="book_length" value="short">Short<br>
+                    <input type="radio" name="book_length" value="medium">Medium<br>
+                    <input type="radio" name="book_length" value="long">Long<br>
+                </div>
+            </div>
+
+            <div class="year">
+                <label for="publication_year"> Choose timeframe of publication</label>
+                <div class="year-slider">
+                    <input type="range" name="year_published_min" min="1953" max="2023" step="1">Year Published (min - 1953)<br>
+                    <input type="range" name="year_published_max" min="1953" max="2023" step="1">Year Published (max - 2023)<br>
+                </div>
+        </div>
+
+            <div class="order-by">
+                <select id="order_by" name="order_by">
+                    <option value="0">Order by...</option>
+                    <option value="relevance">Relevance</option>
+                    <option value="newest">Newest</option>
+                </select><br>
+            </div>
+            <div class="submit-button">
+            <input type="submit" value="Find A Book">
+            </div>
+        </form>
+    </section>
+<script>
+        function updateCategories() {
+            var genreSelect = document.getElementById("genre");
+            var categorySelect = document.getElementById("category");
+
+            var selectedGenre = genreSelect.value;
+
+            categorySelect.innerHTML = "";
+
+            if (selectedGenre === "fiction") {
+                var categories = [
+                "Classics",
+                "Crime",
+                "Dystopian",
+                "Fantasy",
+                "Graphic Novels",
+                "Historical",
+                "Horror",
+                "LGBTQ+",
+                "Literary",
+                "Mystery & Detective",
+                "Romance",
+                "Science Fiction",
+                "Thriller"
+                ];
+            } else if (selectedGenre === "non-fiction") {
+                var categories = [
+                "Business",
+                "Cooking",
+                "Crafts",
+                "Gardening",
+                "Music",
+                "Nature",
+                "Philosophy",
+                "Politics",
+                "Religion",
+                "Travel",
+                "True Crime"
+                ];
+            }
+
+            for (var i = 0; i < categories.length; i++) {
+                var option = document.createElement("option");
+                option.value = categories[i];
+                option.text = categories[i];
+                categorySelect.appendChild(option);
+            }
+        }
+
+        // Initialize the categories based on the default genre selection
+        updateCities();
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter One</title>
+
+    <!--Some CSS here (obviously need to move this to a stylesheet but in the meantime have just plonked here).
+    Mainly to set the label display to block so it's above the input-->
+    <style>
+        body {
+            margin: 10px;
+            }
+        label {
+            display: block;
+            }
+
+
+    </style>
+</head>
+
+<body>
+<h1>CHAPTER ONE</h1>
+<h2>Your reading list</h2>
+
+
+{% for book in books %}
+        <div class="book">
+            <h2>{{ book['title'] }}</h2>
+            <p><strong>Author: </strong>{{ book['authors'] }}</p>
+            <p><strong>Published: </strong>{{ format_book_published(book) }}</p>
+            <p><strong>Description: </strong>{{ book['description'] }}</p>
+            <p><strong>Categories: </strong> {{ format_book_categories(book) }}</p>
+            <p><strong>Rating: </strong> {{ format_book_rating(book) }}</p>
+            <p><strong>Length: </strong> {{ format_book_length(book) }}</p>
+            <img src="{{ book['thumbnail'] }}" alt="{{ book['title'] }}">
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+
+</html>

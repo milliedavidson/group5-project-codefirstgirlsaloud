@@ -130,11 +130,11 @@ def format_book_length(book):
 # Format category for search - home.html - Lucy
 # def format_category_for_search(category):
 #     if category == "Fantasy":
-#         formatted_category = "bestselling+fantasy"
+#         formatted_category = "fiction+fantasy"
 #         return formatted_category
 #
 #     elif category == "Science Fiction":
-#         formatted_category = "science fiction"
+#         formatted_category = "science+fiction"
 #         return formatted_category
 #
 #     else:

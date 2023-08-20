@@ -1,2 +1,46 @@
 {% extends "layout.html" %}
 
+{% block main_content %}
+<h1>CHAPTER ONE</h1>
+<h2>Where adventures in literature begin</h2>
+
+<form action="/results" method="POST">
+    <div>
+        <label for="genre">Genre</label>
+        <select id="genre" onchange="updateCategories()">
+            <option value="0">Pick a genre...</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+        </select><br>
+    </div>
+
+    <div>
+        <label for="category">Category</label>
+        <select id="category" name="categories">
+            <!--                Categories will be dynamically generated based on genre using JS script at bottom of html body-->
+        </select><br>
+    </div>
+
+    <div>
+        <input type="radio" name="book_length" value="short">Short<br>
+        <input type="radio" name="book_length" value="medium">Medium<br>
+        <input type="radio" name="book_length" value="long">Long<br>
+    </div>
+
+    <div class="dual-range">
+        <input type="range" name="year_published_min" min="1973" max="2023" step="1">Year Published(min)<br>
+        <input type="range" name="year_published_max" min="1973" max="2023" step="1">Year Published(max)<br>
+    </div>
+
+    <div>
+        <select id="order_by" name="order_by">
+            <option value="0">Order by...</option>
+            <option value="relevance">Relevance</option>
+            <option value="newest">Newest</option>
+        </select><br>
+    </div>
+
+    <input type="submit" value="Find A Book">
+</form>
+
+{% endblock %}

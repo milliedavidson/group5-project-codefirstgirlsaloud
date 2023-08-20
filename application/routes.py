@@ -1,12 +1,13 @@
-from flask import render_template
+from flask import render_template, Flask, jsonify, request
 from application import app
-
+from main import fetch_books, format_and_print_books
+from input import format_category_for_search
 
 @app.route('/')
 @app.route('/index')
 @app.route('/home',methods=['GET'])
 def home():
-    return render_template('home.html')
+    return render_template('home.html', title='Chapter One')
 
 
 @app.route('/about')

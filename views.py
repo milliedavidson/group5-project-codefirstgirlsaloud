@@ -1,7 +1,5 @@
 from flask import Flask, jsonify, request
 from main import fetch_books, format_and_print_books
-from input import format_category_for_search
-
 # from draft_config import MY_API_KEY
 
 app = Flask(__name__)
@@ -9,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    with open("home.html", "r") as file:
+    with open("application/templates/home.html", "r") as file:
         return file.read()
 
 

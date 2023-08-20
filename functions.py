@@ -9,7 +9,7 @@ from book import create_book_dict
 def find_books(subject, book_length, start_year, end_year, order_by, min_results=10):
     results = []  # Initialise list to store results
     seen_books = set()  # Maintain a set of seen titles and authors so no repeats
-    page = random.randint(0, 10)  # Starts search on random page number between 0-10
+    page = 0
 
     while (
         len(results) < min_results
@@ -48,10 +48,9 @@ def find_books(subject, book_length, start_year, end_year, order_by, min_results
             except KeyError:
                 pass
 
-        page += random.randint(
-            1, 5
-        )  # Moves to new page by adding a random number between 1-10
+        page += 1  # Moves to new page by adding a random number between 1-10
 
+    print(results)
     return results[:min_results]  # Returns 10 results (index 0-9)
 
 
@@ -77,8 +76,11 @@ def low_rating(book_dict):
 
 # Uses the published date and returns it as just the year to compare against users input year
 def get_published_year(book_dict):
-    published_date = book_dict["published_date"]
-    return int(published_date[:4])
+    try:
+        datetime.strptime(book_dict["published_date"], "%Y-%m-%d")
+        return int(book_dict["published_date"][:4])
+    except ValueError:
+        return 0
 
 
 # Returns the page count as a word (short, medium, long) that can be compared to user input length
@@ -98,9 +100,12 @@ def book_in_date_range(published_year, start_year, end_year):
 
 # Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD
 def formatted_date(book_dict):
-    unformatted_date = datetime.strptime(book_dict["published_date"], "%Y-%m-%d")
-    formatted_date = unformatted_date.strftime("%d-%m-%Y")
-    return formatted_date
+    try:
+        unformatted_date = datetime.strptime(book_dict["published_date"], "%Y-%m-%d")
+        formatted_date = unformatted_date.strftime("%d-%m-%Y")
+        return formatted_date
+    except ValueError:
+        return "N/A"
 
 
 # Formats the published date for html
@@ -122,3 +127,16 @@ def format_book_rating(book):
 def format_book_length(book):
     return f"{get_book_length(book).capitalize()}, {book['page_count']} pages"
 
+
+# Format category for search - home.html - Lucy
+# def format_category_for_search(category):
+#     if category == "Fantasy":
+#         formatted_category = "bestselling+fantasy"
+#         return formatted_category
+#
+#     elif category == "Science Fiction":
+#         formatted_category = "science fiction"
+#         return formatted_category
+#
+#     else:
+#         return category

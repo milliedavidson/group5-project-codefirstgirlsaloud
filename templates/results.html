@@ -32,6 +32,7 @@
             <p><strong>Categories: </strong> {{ format_book_categories(book) }}</p>
             <p><strong>Rating: </strong> {{ format_book_rating(book) }}</p>
             <p><strong>Length: </strong> {{ format_book_length(book) }}</p>
+            <a href="{{ book['preview_link'] }}" target="_blank"><strong>Preview Link</strong></a></p>
             <img src="{{ book['thumbnail'] }}" alt="{{ book['title'] }}">
         </div>
         <hr>

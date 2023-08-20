@@ -1,5 +1,4 @@
 from datetime import datetime
-import random
 from api import call_api
 from book import create_book_dict
 

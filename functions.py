@@ -135,7 +135,7 @@ def format_book_length(book):
 #         return formatted_category
 #
 #     elif category == "Science Fiction":
-#         formatted_category = "sciencefiction"
+#         formatted_category = "science fiction"
 #         return formatted_category
 #
 #     else:

@@ -156,3 +156,64 @@ form { /* position of filter options using flexbox */
 .button {
     border-radius: 4px; /* rounded corners on 'find books' button*/
 }
+
+
+/* RESULTS PAGE - changes how the returned books look */
+
+.book-container { /* contains all the book info, adds border*/
+    width: 70%; /* changes how much white space on either side of the container */
+    border: 2px solid #dbd3b480; /* change colour of border */
+    border-radius: 10px; /* change thickness of border */
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 60px auto 0; /* top margin to 60px and centers container horizontally */
+
+}
+
+.book-container h4 {
+    text-align: center;
+    margin: 40px;
+    font-family: Nobile; /* edit these to change appearance of 'your reading list' sentence*/
+    color: #283618;
+    font-size: 24px;
+}
+
+.book {
+    display: flex;
+    align-items: flex-start;
+    font-family: Nobile;
+  }
+
+  .book-details {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+  }
+
+  .title-author {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title-author h2 {
+    margin-bottom: 5px;
+  }
+
+  .book-preview {
+    margin-left: 20px;
+    align-self: center;
+}
+
+.description {
+    font-size: 14px;
+}
+
+.book img {
+    order: -1;
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+    align-self: center;
+}

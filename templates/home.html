@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Chapter One</title>
-    <!-- This line needs to always say this -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
@@ -78,7 +77,7 @@
             <div class="submit-button">
                 <input type="submit" class="button"value="Find books">
             </div>
-
+        <input type="hidden" id="selected_genre" name="selected_genre" value="">
         </form>
     </div>
     </section>
@@ -88,8 +87,9 @@
         function updateCategories() {
             var genreSelect = document.getElementById("genre");
             var categorySelect = document.getElementById("category");
-
             var selectedGenre = genreSelect.value;
+
+            document.getElementById("selected_genre").value = selectedGenre;
 
             categorySelect.innerHTML = "";
 
@@ -134,7 +134,7 @@
         }
 
         // Initialize the categories based on the default genre selection
-        updateCities();
+        updateCategories();
 
 
 

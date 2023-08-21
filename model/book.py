@@ -1,4 +1,4 @@
-# Creates a book dictionary - this is where all the data is pulled from
+# Creates a book class - this is where all the data is pulled from
 class Book:
     def __init__(self, item):
         self.title = item["volumeInfo"].get("title", "N/A")

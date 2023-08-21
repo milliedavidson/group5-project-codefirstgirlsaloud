@@ -1,8 +1,9 @@
 function updateCategories() {
             var genreSelect = document.getElementById("genre");
             var categorySelect = document.getElementById("category");
-
             var selectedGenre = genreSelect.value;
+
+            document.getElementById("selected_genre").value = selectedGenre;
 
             categorySelect.innerHTML = "";
 
@@ -46,5 +47,5 @@ function updateCategories() {
             }
         }
 
-// Initialize the categories based on the default genre selection
-        updateCities();
+        // Initialize the categories based on the default genre selection
+        updateCategories();

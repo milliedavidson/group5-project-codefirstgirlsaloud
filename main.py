@@ -24,7 +24,7 @@ def home():
         selected_max_published_date = int(request.form["year_published_max"])
         selected_order_by = request.form["order_by"]
 
-        # Print the captured form data to the console
+        # Delete later on - just prints to console
         print(f"Selected Category: {selected_category}")
         print(f"Selected Book Length: {selected_book_length}")
         print(f"Selected Min Published Date: {selected_min_published_date}")

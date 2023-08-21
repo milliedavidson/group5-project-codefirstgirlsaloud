@@ -132,3 +132,4 @@ def format_category_for_search(category, selected_genre):
     else:
         formatted_category = category
     return formatted_category
+

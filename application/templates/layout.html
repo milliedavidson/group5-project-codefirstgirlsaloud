@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>{{Title}}</title>
+    <!-- This line needs to always say this -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    {% block head_content %}{% endblock %}
+
 </head>
+
 <body>
+    <header class="header-wrapper">
+        <h1 class="website-name"> ChapterOne</h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
 {% block main_content %}{% endblock %}
-<script src="../static/script.js"></script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>

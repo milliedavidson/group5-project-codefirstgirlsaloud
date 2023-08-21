@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Chapter One</title>
+{% extends "layout.html" %}
 
+{% block head_content %}
     <!--Some CSS here (obviously need to move this to a stylesheet but in the meantime have just plonked here).
     Mainly to set the label display to block so it's above the input-->
     <style>
@@ -13,12 +10,11 @@
         label {
             display: block;
             }
-
-
     </style>
-</head>
 
-<body>
+{% endblock %}
+
+{% block main_content %}
 <h1>CHAPTER ONE</h1>
 <h2>Your reading list</h2>
 
@@ -37,6 +33,5 @@
         </div>
         <hr>
     {% endfor %}
-</body>
 
-</html>
+{% endblock %}

@@ -4,43 +4,69 @@
 <h1>CHAPTER ONE</h1>
 <h2>Where adventures in literature begin</h2>
 
-<form action="/results" method="POST">
-    <div>
-        <label for="genre">Genre</label>
-        <select id="genre" onchange="updateCategories()">
-            <option value="0">Pick a genre...</option>
-            <option value="fiction">Fiction</option>
-            <option value="non-fiction">Non-Fiction</option>
-        </select><br>
-    </div>
+    <section class="welcome-wrapper">
+    <h4 class="title"> Welcome to ChapterOne </h4>
+    <!-- TODO: change placeholder text -->
+    <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-    <div>
-        <label for="category">Category</label>
-        <select id="category" name="categories">
-            <!--                Categories will be dynamically generated based on genre using JS script at bottom of html body-->
-        </select><br>
-    </div>
 
-    <div>
-        <input type="radio" name="book_length" value="short">Short<br>
-        <input type="radio" name="book_length" value="medium">Medium<br>
-        <input type="radio" name="book_length" value="long">Long<br>
-    </div>
 
-    <div class="dual-range">
-        <input type="range" name="year_published_min" min="1973" max="2023" step="1">Year Published(min)<br>
-        <input type="range" name="year_published_max" min="1973" max="2023" step="1">Year Published(max)<br>
-    </div>
+    <div class="container">
+        <h4> Select from the filters below to generate your personalised reading list:</h4>
 
-    <div>
-        <select id="order_by" name="order_by">
-            <option value="0">Order by...</option>
-            <option value="relevance">Relevance</option>
-            <option value="newest">Newest</option>
-        </select><br>
-    </div>
+        <form action="/" method="POST">
 
-    <input type="submit" value="Find A Book">
-</form>
+            <div class="genre-menu">
+                <label for="genre">Category:</label>
+                <div class="genre-select">
+                    <select id="genre" onchange="updateCategories()">
+                         <option value="0">I am interested in reading...</option>
+                         <option value="fiction">Fiction</option>
+                         <option value="non-fiction">Non-Fiction</option>
+                    </select><br>
+                </div>
+            </div>
+
+            <div class="category">
+                <label for="category">Genre:</label>
+                <div class="category-select">
+                    <select id="category" name="categories">
+                     <!--                Categories will be dynamically generated based on genre using JS script at bottom of html body-->
+                    </select><br>
+                </div>
+            </div>
+
+            <div class="length">
+                <label for="book_length"> Length:</label>
+                <div class="length-buttons">
+                    <input type="radio" name="book_length" value="short">Short<br>
+                    <input type="radio" name="book_length" value="medium">Medium<br>
+                    <input type="radio" name="book_length" value="long">Long<br>
+                </div>
+            </div>
+
+            <div class="year">
+                <label for="publication_year"> Publication Year: </label>
+                <div class="year-slider">
+                    <input type="range" name="year_published_min" min="1953" max="2023" step="1"><br>
+                    <input type="range" name="year_published_max" min="1953" max="2023" step="1"><br>
+                </div>
+            </div>
+
+            <div class="order-by">
+                <select id="order_by" name="order_by">
+                    <option value="0">Order by...</option>
+                    <option value="relevance">Relevance</option>
+                    <option value="newest">Newest</option>
+                    </select><br>
+            </div>
+
+            <div class="submit-button">
+                <input type="submit" class="button"value="Find books">
+            </div>
+
+        </form>
+    </div>
+    </section>
 
 {% endblock %}

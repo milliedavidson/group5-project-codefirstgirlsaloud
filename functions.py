@@ -132,15 +132,3 @@ def format_category_for_search(category, selected_genre):
     else:
         formatted_category = category
     return formatted_category
-
-
-    # if category == "Fantasy":
-    #     formatted_category = "fiction+fantasy"
-    #     return formatted_category
-    #
-    # elif category == "Science Fiction":
-    #     formatted_category = "science+fiction"
-    #     return formatted_category
-    #
-    # else:
-    #     return category

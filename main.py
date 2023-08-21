@@ -4,8 +4,8 @@ from functions import (
     format_book_published,
     format_book_categories,
     format_book_rating,
-    format_book_length, format_category_for_search,
-    # format_category_for_search
+    format_book_length,
+    format_category_for_search
 )
 
 app = Flask(__name__, template_folder='templates')

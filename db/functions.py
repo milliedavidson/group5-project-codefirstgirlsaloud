@@ -5,20 +5,26 @@ from model.book import Book
 
 # MAIN BOOK FILTER FUNCTION
 # Fetches books based on user input and criteria
-def find_books(subject, book_length, start_year, end_year, order_by, min_results=10):
+def find_books(subject, book_length, start_year, end_year, min_results=10):
     results = []  # Initialise list to store results
-    seen_books = set()  # Maintain a set of seen titles and authors so no repeats
+    seen_books = set()  # Maintain a set of seen titles and authors so no duplicates
     page = 0
+    empty_pages = 0
 
-    while (
-        len(results) < min_results
-    ):  # Keep the search/loop going until 10 books are found (pagination)
-        items = call_api(subject, page, order_by)  # Fetch books from API
+    while len(results) < min_results:
+        items = call_api(subject, page)  # Fetch books from API
+        if not items:
+            empty_pages += 1
+            if empty_pages == 5:  # When there have been 5 pages in a row with no results the loop ends
+                break
+        else:
+            empty_pages = 0
 
         for item in items:
             try:
                 # Create book instance using the Book class
                 book = Book(item)
+                print(book)
 
                 # 1st filter removes anything with missing data
                 if any(
@@ -131,6 +137,7 @@ def format_book_length(book):
     return f"{get_book_length(book).capitalize()}, {book.page_count} pages"
 
 
+# Formats the book length for HTML
 def format_category_for_search(category, selected_genre):
     if selected_genre == "fiction":
         formatted_category = "fiction+" + category

@@ -1,0 +1,28 @@
+Index: application/routes.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from flask import render_template, request\nfrom application import app\nfrom db.functions import (\n    find_books,\n    format_book_published,\n    format_book_categories,\n    format_book_rating,\n    format_book_length,\n    format_category_for_search\n)\n\napp.add_template_global(format_book_published, 'format_book_published')\napp.add_template_global(format_book_categories, 'format_book_categories')\napp.add_template_global(format_book_rating, 'format_book_rating')\napp.add_template_global(format_book_length, 'format_book_length')\n\n\n@app.route('/')\n@app.route('/index')\n@app.route(\"/\", methods=[\"GET\", \"POST\"])\ndef home():\n    if request.method == \"POST\":\n        selected_genre = request.form.get(\"selected_genre\")\n        selected_category = request.form.get(\"categories\")\n        formatted_category = format_category_for_search(selected_category, selected_genre)\n        selected_book_length = request.form[\"book_length\"]\n        selected_min_published_date = int(request.form[\"year_published_min\"])\n        selected_max_published_date = int(request.form[\"year_published_max\"])\n        selected_order_by = request.form[\"order_by\"]\n\n        # Delete later on - just prints to console\n        print(f\"Selected Genre: {selected_genre}\")\n        print(f\"Selected Category: {selected_category}\")\n        print(f\"Selected Book Length: {selected_book_length}\")\n        print(f\"Selected Min Published Date: {selected_min_published_date}\")\n        print(f\"Selected Max Published Date: {selected_max_published_date}\")\n        print(f\"Selected Order By: {selected_order_by}\")\n\n        books = find_books(\n            formatted_category,\n            selected_book_length,\n            selected_min_published_date,\n            selected_max_published_date,\n            selected_order_by\n        )\n        return render_template('results.html', books=books)\n    else:\n        return render_template('home.html')\n\n\n@app.errorhandler(404)\ndef page_not_found():\n    return render_template('404.html'), 404\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/application/routes.py b/application/routes.py
+--- a/application/routes.py	(revision 6a1ef7c28ab466dfe6cdea42b74a2d15105ffc8d)
++++ b/application/routes.py	(date 1692717710493)
+@@ -9,14 +9,15 @@
+     format_category_for_search
+ )
+ 
++
+ app.add_template_global(format_book_published, 'format_book_published')
+ app.add_template_global(format_book_categories, 'format_book_categories')
+ app.add_template_global(format_book_rating, 'format_book_rating')
+ app.add_template_global(format_book_length, 'format_book_length')
+ 
+ 
+-@app.route('/')
+-@app.route('/index')
++@app.route('/')  # THIS
++@app.route('/index')  # THIS
+ @app.route("/", methods=["GET", "POST"])
+ def home():
+     if request.method == "POST":

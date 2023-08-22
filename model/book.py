@@ -21,6 +21,7 @@ class Book:
             f"Published: {self.published_date}\n"
             f"Description: {self.description}\n"
             f"Categories: {self.categories}\n"
+            f"Length: {self.page_count} pages\n"
             f"Rating: {self.average_rating} stars\n"
             f"Price: £{self.price}\n"
             f"Image: {self.thumbnail}\n"

@@ -15,7 +15,7 @@
         <form action="/" method="POST">
 
             <div class="genre-menu">
-                <label for="genre">Category:</label>
+                <label for="genre">Genre:</label>
                 <div class="genre-select">
                     <select id="genre" onchange="updateCategories()">
                          <option value="0">I am interested in reading...</option>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="category">
-                <label for="category">Genre:</label>
+                <label for="category">Category:</label>
                 <div class="category-select">
                     <select id="category" name="categories">
                      <!--                Categories will be dynamically generated based on genre using JS script at bottom of html body-->
@@ -51,13 +51,13 @@
                 </div>
             </div>
 
-            <div class="order-by">
-                <select id="order_by" name="order_by">
-                    <option value="0">Order by...</option>
-                    <option value="relevance">Relevance</option>
-                    <option value="newest">Newest</option>
-                    </select><br>
-            </div>
+<!--            <div class="order-by">-->
+<!--                <select id="order_by" name="order_by">-->
+<!--                    <option value="0">Order by...</option>-->
+<!--                    <option value="relevance">Relevance</option>-->
+<!--                    <option value="newest">Newest</option>-->
+<!--                    </select><br>-->
+<!--            </div>-->
 
             <div class="submit-button">
                 <input type="submit" class="button"value="Find books">

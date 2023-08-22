@@ -7,7 +7,7 @@ from model.book import Book
 # Fetches books based on user input and criteria
 def find_books(subject, book_length, start_year, end_year, min_results=10):
     results = []  # Initialise list to store results
-    seen_books = set()  # Maintain a set of seen titles and authors so no repeats
+    seen_books = set()  # Maintain a set of seen titles and authors so no duplicates
     page = 0
     empty_pages = 0
 

@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Chapter One</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
+{% extends "layout.html" %}
 
-<body>
-    <header class="header-wrapper">
-        <h1 class="website-name"> ChapterOne</h1>
-        <nav class="nav">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
+{% block main_content %}
 
     <section class="welcome-wrapper">
     <h4 class="title"> Welcome to ChapterOne </h4>
@@ -82,63 +67,4 @@
     </div>
     </section>
 
-
-<script>
-        function updateCategories() {
-            var genreSelect = document.getElementById("genre");
-            var categorySelect = document.getElementById("category");
-            var selectedGenre = genreSelect.value;
-
-            document.getElementById("selected_genre").value = selectedGenre;
-
-            categorySelect.innerHTML = "";
-
-            if (selectedGenre === "fiction") {
-                var categories = [
-                "Classics",
-                "Crime",
-                "Dystopian",
-                "Fantasy",
-                "Graphic Novels",
-                "Historical",
-                "Horror",
-                "LGBTQ+",
-                "Literary",
-                "Mystery & Detective",
-                "Romance",
-                "Science Fiction",
-                "Thriller"
-                ];
-            } else if (selectedGenre === "non-fiction") {
-                var categories = [
-                "Business",
-                "Cooking",
-                "Crafts",
-                "Gardening",
-                "Music",
-                "Nature",
-                "Philosophy",
-                "Politics",
-                "Religion",
-                "Travel",
-                "True Crime"
-                ];
-            }
-
-            for (var i = 0; i < categories.length; i++) {
-                var option = document.createElement("option");
-                option.value = categories[i];
-                option.text = categories[i];
-                categorySelect.appendChild(option);
-            }
-        }
-
-        // Initialize the categories based on the default genre selection
-        updateCategories();
-
-
-
-</script>
-
-</body>
-</html>
+{% endblock %}

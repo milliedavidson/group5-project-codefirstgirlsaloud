@@ -1,29 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Chapter One</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
+{% extends "layout.html" %}
 
-<body>
-    <!-- can be moved to layout.html -->
-    <header class="header-wrapper">
-        <h1 class="website-name"> ChapterOne</h1>
-        <nav class="nav">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
+{% block main_content %}
+<h1>CHAPTER ONE</h1>
 
     <div class="book-container">
         <h4>Your reading list</h4>
         <hr>
-    {% for book in books %}
 
-
+        {% for book in books %}
             <div class="book">
 
                 <div class="book-details">
@@ -36,12 +20,10 @@
                     <p class="description"><strong>Description: </strong>{{ book['description'] }}</p>
                 </div>
 
-
 <!--                <p><strong>Published: </strong>{{ format_book_published(book) }}</p>-->
 <!--                <p><strong>Categories: </strong> {{ format_book_categories(book) }}</p>-->
 <!--                <p><strong>Rating: </strong> {{ format_book_rating(book) }}</p>-->
 <!--                <p><strong>Length: </strong> {{ format_book_length(book) }}</p>-->
-
 
                 <div class="book-preview">
                     <a class ="button" href="{{ book['preview_link'] }}" target="_blank">
@@ -51,8 +33,9 @@
                 <img src="{{ book['thumbnail'] }}" alt="{{ book['title'] }}">
             </div>
             <hr>
+
         {% endfor %}
     </div>
-</body>
 
-</html>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from datetime import datetime
-from api import call_api
-from book import Book
+from controller.api import call_api
+from model.book import Book
 
 
 # MAIN BOOK FILTER FUNCTION
@@ -62,6 +62,7 @@ def find_books(subject, book_length, start_year, end_year, order_by, min_results
 def get_book_id(book):
     return book.title, book.authors
 
+
 # Checks the excluded words against those in the book's categories
 # If any are found, it returns the book so they can be filtered out in the find_books function
 def excluded_categories(book):
@@ -75,6 +76,7 @@ def excluded_categories(book):
 def low_rating(book):
     return book.average_rating < 4
 
+
 # Uses the published date and returns it as just the year to compare against user's input year
 def get_published_year(book):
     try:
@@ -82,6 +84,7 @@ def get_published_year(book):
         return int(book.published_date[:4])
     except ValueError:
         return 0
+
 
 # Returns the page count as a word (short, medium, long) that can be compared to user's input length
 def get_book_length(book):
@@ -91,6 +94,7 @@ def get_book_length(book):
         return "medium"
     else:
         return "long"
+
 
 # Checks that the published year (from get_published_year function) is within user's range
 def book_in_date_range(published_year, start_year, end_year):
@@ -106,6 +110,7 @@ def formatted_date(book):
     except ValueError:
         return "N/A"
 
+
 # Formats the published date for HTML
 def format_book_published(book):
     return f"{formatted_date(book)}\n"
@@ -120,15 +125,16 @@ def format_book_categories(book):
 def format_book_rating(book):
     return f"{book.average_rating} stars"
 
+
 # Formats the book length for HTML
 def format_book_length(book):
     return f"{get_book_length(book).capitalize()}, {book.page_count} pages"
 
 
-# Format category for search - home.html - Lucy
 def format_category_for_search(category, selected_genre):
     if selected_genre == "fiction":
         formatted_category = "fiction+" + category
     else:
         formatted_category = category
     return formatted_category
+

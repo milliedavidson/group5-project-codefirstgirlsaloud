@@ -5,7 +5,7 @@ from model.book import Book
 
 # MAIN BOOK FILTER FUNCTION
 # Fetches books based on user input and criteria
-def find_books(subject, book_length, start_year, end_year, order_by, min_results=10):
+def find_books(subject, book_length, start_year, end_year, min_results=10):
     results = []  # Initialise list to store results
     seen_books = set()  # Maintain a set of seen titles and authors so no repeats
     page = 0
@@ -13,7 +13,7 @@ def find_books(subject, book_length, start_year, end_year, order_by, min_results
     while (
         len(results) < min_results
     ):  # Keep the search/loop going until 10 books are found (pagination)
-        items = call_api(subject, page, order_by)  # Fetch books from API
+        items = call_api(subject, page)  # Fetch books from API
 
         for item in items:
             try:

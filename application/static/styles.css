@@ -194,9 +194,10 @@ form { /* position of filter options using flexbox */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 15px
   }
 
-  .title-author h2 {
+  .title-author h3 {
     margin-bottom: 5px;
   }
 
@@ -205,7 +206,19 @@ form { /* position of filter options using flexbox */
     align-self: center;
 }
 
+.published-date {
+    font-size: 14px;
+}
+
 .description {
+    font-size: 14px;
+    display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
+}
+
+.categories-rating {
     font-size: 14px;
 }
 

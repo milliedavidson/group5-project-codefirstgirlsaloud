@@ -15,8 +15,6 @@ app.add_template_global(format_book_rating, 'format_book_rating')
 app.add_template_global(format_book_length, 'format_book_length')
 
 
-@app.route('/')
-@app.route('/index')
 @app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":

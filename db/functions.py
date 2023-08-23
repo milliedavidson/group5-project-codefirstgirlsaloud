@@ -5,7 +5,7 @@ from model.book import Book
 
 # MAIN BOOK FILTER FUNCTION
 # Fetches books based on user input and criteria
-def find_books(subject, book_length, start_year, end_year, min_results=10):
+def find_books(subject, book_length, order_by, min_results=10):
     results = []  # Initialise list to store results
     seen_books = set()  # Maintain a set of seen titles and authors so no duplicates
     page = 0
@@ -44,13 +44,9 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
                 if excluded_categories(book) or subject not in book.categories:
                     continue
 
-                # 4th filter checks within date range and selected book length
-                year = get_published_year(book)
+                # 4th filter checks selected book length
                 length = get_book_length(book)
-                if (
-                    book_in_date_range(year, start_year, end_year)
-                    and length == book_length
-                ):
+                if length == book_length:
                     # If the book gets through these filters it is added book to results
                     results.append(book)
 
@@ -62,8 +58,7 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
 
         page += 1  # Moves to new page by adding a random number between 1-10
 
-    for book in results:
-        print(book)
+
 
     return results[:min_results]  # Returns 10 results (index 0-9)
 
@@ -149,3 +144,4 @@ def format_category_for_search(category, selected_genre):
     else:
         formatted_category = category
     return formatted_category
+

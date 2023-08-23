@@ -27,7 +27,7 @@ def find_books(selected_genre, selected_category, book_length, order_by, min_res
 
                 # 1st filter removes anything with missing data
                 if any(
-                    value == "N/A" or value == 0 for value in book.__dict__.values()
+                    value == "N/A" for value in book.__dict__.values()
                 ):
                     continue
 
@@ -132,7 +132,11 @@ def format_book_published(book):
 
 # Formats the rating for HTML
 def format_book_rating(book):
-    return f"{book.average_rating} stars"
+    book_rating = book.average_rating
+    if book_rating == 0:
+        return "No ratings yet"
+    else:
+        return f"{book_rating} stars"
 
 
 # Formats the book length for HTML

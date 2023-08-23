@@ -58,7 +58,10 @@ def find_books(subject, book_length, order_by, min_results=10):
 
         page += 1  # Moves to new page by adding a random number between 1-10
 
-
+    if order_by == 'Published Year':
+        sorted(results, key=lambda book: book.published_date, reverse=True)
+    elif order_by == 'Top Rated':
+        sorted(results, key=lambda book: book.average_rating, reverse=True)
 
     return results[:min_results]  # Returns 10 results (index 0-9)
 

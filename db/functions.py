@@ -38,7 +38,7 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
                 seen_books.add(book_id)  # If not already seen, adds it to the list
 
                 # 3rd filter checks if there are any excluded categories and if rating is 4+
-                if excluded_categories(book):
+                if excluded_categories(book) or subject not in book.categories:
                     continue
 
                 # 4th filter checks within date range and selected book length

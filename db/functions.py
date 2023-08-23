@@ -58,7 +58,6 @@ def find_books(selected_genre, selected_category, book_length, order_by, min_res
 
         # 5th filter to sort results based on user selection
         sorted_results = order_results(order_by, results)
-        print(sorted_results)
 
         return sorted_results[:min_results]  # Returns 10 results (index 0-9)
 

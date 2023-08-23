@@ -76,24 +76,28 @@ def get_book_id(book):
     return book.title, book.authors
 
 
-# Checks the excluded words against those in the book's categories
-# If any are found, it returns the book so they can be filtered out in the find_books function
+# If fiction - ensures that book.categories is also fiction
+# If non-fiction - ensures that book.categories is the selected_category e.g. cooking
+# When a book is found that doesn't match these conditions, it is returned + filtered out in the find_books function
 def excluded_categories(book, selected_genre, selected_category):
     if selected_genre == "fiction":
         if book.categories.lower() != selected_genre:
             print("WRONG CATEGORY")
             return book
-    else:  # if selected_genre == "non-fiction"
-        if book.categories.lower != selected_category.lower():
+    else:  # (if selected_genre == "non-fiction")
+        if book.categories.lower() != selected_category.lower():
             print("WRONG CATEGORY")
             return book
 
 
-def format_category_for_search(category, selected_genre):
+# Formats category for better API endpoint results
+# If fiction "q=fiction+selected_category"
+# If non-fiction "q=selected_category"
+def format_category_for_search(selected_category, selected_genre):
     if selected_genre == "fiction":
-        formatted_category = "fiction+" + category
+        formatted_category = "fiction+" + selected_category
     else:
-        formatted_category = category
+        formatted_category = selected_category
     return formatted_category
 
 

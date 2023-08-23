@@ -5,7 +5,9 @@ from model.book import Book
 
 # MAIN BOOK FILTER FUNCTION
 # Fetches books based on user input and criteria
-def find_books(selected_genre, selected_category, book_length, order_by, min_results=10):
+def find_books(
+    selected_genre, selected_category, book_length, order_by, min_results=10
+):
     results = []  # Initialise list to store results
     seen_books = set()  # Maintain a set of seen titles and authors so no duplicates
     page = 0
@@ -15,7 +17,9 @@ def find_books(selected_genre, selected_category, book_length, order_by, min_res
         items = call_api(selected_category, page)  # Fetch books from API
         if not items:
             empty_pages += 1
-            if empty_pages == 5:  # When there have been 5 pages in a row with no results the loop ends
+            if (
+                empty_pages == 5
+            ):  # When there have been 5 pages in a row with no results the loop ends
                 break
         else:
             empty_pages = 0
@@ -139,10 +143,16 @@ def format_book_length(book):
 def order_results(order_by, results):
     sorted_results = []
 
-    if order_by == 'newest':
-        sorted_results = sorted(results, key=lambda book: formatted_date(book), reverse=True)
+    if order_by == "newest":
+        sorted_results = sorted(
+            results,
+            key=lambda book: datetime.strptime(book.published_date, "%Y-%m-%d"),
+            reverse=True,
+        )
 
-    elif order_by == 'top rated':
-        sorted_results = sorted(results, key=lambda book: int(book.average_rating), reverse=True)
+    elif order_by == "top rated":
+        sorted_results = sorted(
+            results, key=lambda book: int(book.average_rating), reverse=True
+        )
 
     return sorted_results

@@ -3,7 +3,6 @@ from application import app
 from db.functions import (
     find_books,
     format_book_published,
-    format_book_categories,
     format_book_rating,
     format_book_length,
     format_category_for_search
@@ -11,7 +10,6 @@ from db.functions import (
 
 
 app.add_template_global(format_book_published, 'format_book_published')
-app.add_template_global(format_book_categories, 'format_book_categories')
 app.add_template_global(format_book_rating, 'format_book_rating')
 app.add_template_global(format_book_length, 'format_book_length')
 
@@ -34,11 +32,11 @@ def home():
         print(f"Selected Max Published Date: {selected_max_published_date}")
 
         books = find_books(
+            selected_genre,
             formatted_category,
             selected_book_length,
             selected_min_published_date,
-            selected_max_published_date,
-
+            selected_max_published_date
         )
         return render_template('results.html', books=books)
     else:

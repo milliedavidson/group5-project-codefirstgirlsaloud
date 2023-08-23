@@ -56,13 +56,11 @@ def find_books(selected_genre, selected_category, book_length, order_by, min_res
 
         page += 1  # Moves to new page by adding a random number between 1-10
 
-    # 5th filter to sort results based on user selection
-    if order_by == 'Newest':
-        sorted(results, key=lambda book: book.published_date, reverse=True)
-    elif order_by == 'Top Rated':
-        sorted(results, key=lambda book: book.average_rating, reverse=True)
+        # 5th filter to sort results based on user selection
+        sorted_results = order_results(order_by, results)
+        print(sorted_results)
 
-    return results[:min_results]  # Returns 10 results (index 0-9)
+        return sorted_results[:min_results]  # Returns 10 results (index 0-9)
 
 
 # HELPER FUNCTIONS
@@ -143,4 +141,14 @@ def format_book_length(book):
     return f"{get_book_length(book).capitalize()}, {book.page_count} pages"
 
 
+# Sorts the results based on the order_by user input selection
+def order_results(order_by, results):
+    sorted_results = []
 
+    if order_by == 'newest':
+        sorted_results = sorted(results, key=lambda book: formatted_date(book), reverse=True)
+
+    elif order_by == 'top rated':
+        sorted_results = sorted(results, key=lambda book: int(book.average_rating), reverse=True)
+
+    return sorted_results

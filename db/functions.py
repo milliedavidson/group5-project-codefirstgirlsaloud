@@ -5,7 +5,7 @@ from model.book import Book
 
 # MAIN BOOK FILTER FUNCTION
 # Fetches books based on user input and criteria
-def find_books(selected_genre, selected_category, book_length, start_year, end_year, min_results=10):
+def find_books(selected_genre, selected_category, book_length, order_by, min_results=10):
     results = []  # Initialise list to store results
     seen_books = set()  # Maintain a set of seen titles and authors so no duplicates
     page = 0
@@ -37,18 +37,15 @@ def find_books(selected_genre, selected_category, book_length, start_year, end_y
                     continue  # Skips over this book, as already been seen
                 seen_books.add(book_id)  # If not already seen, adds it to the list
 
-                # 3rd filter checks if there are any excluded categories and if rating is 4+
+                # 3rd filter checks if there are any excluded categories
                 if excluded_categories(book, selected_genre, selected_category):
                     continue
 
-                # 4th filter checks within date range and selected book length
-                year = get_published_year(book)
+                # 4th filter checks for selected book length
+                # year = get_published_year(book)
                 length = get_book_length(book)
-                if (
-                    book_in_date_range(year, start_year, end_year)
-                    and length == book_length
-                ):
-                    # If the book gets through these filters it is added book to results
+                if length == book_length:
+                    # If the book gets through this filter it is added book to results
                     results.append(book)
 
                     if len(results) == min_results:  # Stops when 10 are found
@@ -59,8 +56,11 @@ def find_books(selected_genre, selected_category, book_length, start_year, end_y
 
         page += 1  # Moves to new page by adding a random number between 1-10
 
-    for book in results:
-        print(book)
+    # 5th filter to sort results based on user selection
+    if order_by == 'Newest':
+        sorted(results, key=lambda book: book.published_date, reverse=True)
+    elif order_by == 'Top Rated':
+        sorted(results, key=lambda book: book.average_rating, reverse=True)
 
     return results[:min_results]  # Returns 10 results (index 0-9)
 
@@ -113,9 +113,9 @@ def get_book_length(book):
         return "long"
 
 
-# Checks that the published year (from get_published_year function) is within user's range
-def book_in_date_range(published_year, start_year, end_year):
-    return start_year <= published_year <= end_year
+# # Checks that the published year (from get_published_year function) is within user's range
+# def book_in_date_range(published_year, start_year, end_year):
+#     return start_year <= published_year <= end_year
 
 
 # Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD

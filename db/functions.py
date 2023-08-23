@@ -156,7 +156,7 @@ def order_results(order_by, results):
 
     elif order_by == "top rated":
         sorted_results = sorted(
-            results, key=lambda book: int(book.average_rating), reverse=True
+            results, key=lambda book: float(book.average_rating), reverse=True
         )
 
     return sorted_results

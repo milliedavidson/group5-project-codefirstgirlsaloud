@@ -24,19 +24,16 @@ def find_books(selected_genre, selected_category, book_length, start_year, end_y
             try:
                 # Create book instance using the Book class
                 book = Book(item)
-                print(f"REJECTED \n{book}")
 
                 # 1st filter removes anything with missing data
                 if any(
                     value == "N/A" or value == 0 for value in book.__dict__.values()
                 ):
-                    print("MISSING VALUES")
                     continue
 
                 # 2nd filter check for duplicates to ensure unique books in the results
                 book_id = get_book_id(book)
                 if book_id in seen_books:
-                    print("ALREADY SEEN")
                     continue  # Skips over this book, as already been seen
                 seen_books.add(book_id)  # If not already seen, adds it to the list
 
@@ -53,8 +50,6 @@ def find_books(selected_genre, selected_category, book_length, start_year, end_y
                 ):
                     # If the book gets through these filters it is added book to results
                     results.append(book)
-                else:
-                    print("WRONG LENGTH")
 
                     if len(results) == min_results:  # Stops when 10 are found
                         break
@@ -82,11 +77,9 @@ def get_book_id(book):
 def excluded_categories(book, selected_genre, selected_category):
     if selected_genre == "fiction":
         if book.categories.lower() != selected_genre:
-            print("WRONG CATEGORY")
             return book
     else:  # (if selected_genre == "non-fiction")
         if book.categories.lower() != selected_category.lower():
-            print("WRONG CATEGORY")
             return book
 
 

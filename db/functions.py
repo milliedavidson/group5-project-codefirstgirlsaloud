@@ -110,11 +110,6 @@ def get_book_length(book):
         return "long"
 
 
-# # Checks that the published year (from get_published_year function) is within user's range
-# def book_in_date_range(published_year, start_year, end_year):
-#     return start_year <= published_year <= end_year
-
-
 # Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD
 def formatted_date(book):
     try:

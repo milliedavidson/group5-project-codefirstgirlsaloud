@@ -7,9 +7,6 @@ class Book:
         self.description = item["volumeInfo"].get("description", "N/A")
         self.categories = ", ".join(item["volumeInfo"].get("categories", ["N/A"]))
         self.average_rating = item["volumeInfo"].get("averageRating", 0)
-        self.price = (
-            item.get("saleInfo", {}).get("retailPrice", {}).get("amount", "N/A")
-        )
         self.thumbnail = item["volumeInfo"]["imageLinks"].get("thumbnail", "N/A")
         self.page_count = item["volumeInfo"].get("pageCount", 0)
         self.preview_link = item["volumeInfo"].get("previewLink", "N/A")
@@ -23,7 +20,6 @@ class Book:
             f"Categories: {self.categories}\n"
             f"Length: {self.page_count} pages\n"
             f"Rating: {self.average_rating} stars\n"
-            f"Price: £{self.price}\n"
             f"Image: {self.thumbnail}\n"
             f"Preview Link: {self.preview_link}\n"
             f"{'=' * 40}"

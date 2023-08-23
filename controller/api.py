@@ -15,7 +15,7 @@ class ApiError(Exception):
 logger = logging.getLogger(__name__)
 
 
-def call_api(subject, page, order_by, timeout=10):
+def call_api(subject, page, timeout=10):
     """
     Call API endpoint and return results.
 
@@ -41,7 +41,7 @@ def call_api(subject, page, order_by, timeout=10):
     endpoint = (
         f"https://www.googleapis.com/books/v1/volumes?q={subject}"
         f"&maxResults=40&printType=books&language=en"
-        f"&startIndex={page*40}&orderBy={order_by}"
+        f"&startIndex={page*40}&orderBy=relevance"
     )
 
     logger.info("Requesting URL: %s", endpoint)

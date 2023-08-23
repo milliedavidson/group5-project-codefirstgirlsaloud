@@ -51,7 +51,7 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
                     # If the book gets through these filters it is added book to results
                     results.append(book)
 
-                    if len(results) >= min_results:  # Stops when 10 are found
+                    if len(results) == min_results:  # Stops when 10 are found
                         break
 
             except KeyError:

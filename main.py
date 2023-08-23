@@ -3,6 +3,7 @@ from functions import (
 )
 
 from input import (
+    selected_genre,
     formatted_category,
     selected_book_length,
     selected_min_published_date,
@@ -10,6 +11,7 @@ from input import (
     selected_order_by
 )
 
+print(f"Genre input: {selected_genre}")
 print(f"Category input: {formatted_category}")
 print(f"Length input: {selected_book_length}")
 print(f"Start year input: {selected_min_published_date}")

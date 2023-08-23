@@ -15,7 +15,9 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
         items = call_api(subject, page)  # Fetch books from API
         if not items:
             empty_pages += 1
-            if empty_pages == 5:  # When there have been 5 pages in a row with no results the loop ends
+            if (
+                empty_pages == 5
+            ):  # When there have been 5 pages in a row with no results the loop ends
                 break
         else:
             empty_pages = 0
@@ -37,7 +39,8 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
                     continue  # Skips over this book, as already been seen
                 seen_books.add(book_id)  # If not already seen, adds it to the list
 
-                # 3rd filter checks if there are any excluded categories and if rating is 4+
+                # 3rd filter checks if there are any excluded categories and
+                # confirms the selected subject matches the book.category
                 if excluded_categories(book) or subject not in book.categories:
                     continue
 
@@ -146,4 +149,3 @@ def format_category_for_search(category, selected_genre):
     else:
         formatted_category = category
     return formatted_category
-

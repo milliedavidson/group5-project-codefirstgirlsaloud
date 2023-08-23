@@ -6,9 +6,9 @@ class Book:
         self.published_date = item["volumeInfo"].get("publishedDate", "N/A")
         self.description = item["volumeInfo"].get("description", "N/A")
         self.categories = ", ".join(item["volumeInfo"].get("categories", ["N/A"]))
-        self.average_rating = item["volumeInfo"].get("averageRating", "Not yet rated")
+        self.average_rating = item["volumeInfo"].get("averageRating", 0)
         self.thumbnail = item["volumeInfo"]["imageLinks"].get("thumbnail", "N/A")
-        self.page_count = item["volumeInfo"].get("pageCount", 0)
+        self.page_count = item["volumeInfo"].get("pageCount", "N/A")
         self.preview_link = item["volumeInfo"].get("previewLink", "N/A")
 
     def __str__(self):

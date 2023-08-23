@@ -38,7 +38,7 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
                 seen_books.add(book_id)  # If not already seen, adds it to the list
 
                 # 3rd filter checks if there are any excluded categories and if rating is 4+
-                if excluded_categories(book) or low_rating(book):
+                if excluded_categories(book):
                     continue
 
                 # 4th filter checks within date range and selected book length
@@ -79,10 +79,10 @@ def excluded_categories(book):
     return book if any(substring in categories for substring in excluded) else None
 
 
-# Checks the book's rating is less than 4
-# If less than 4, it returns True so they can again be filtered out in the main.py
-def low_rating(book):
-    return book.average_rating < 4
+# # Checks the book's rating is less than 4
+# # If less than 4, it returns True so they can again be filtered out in the main.py
+# def low_rating(book):
+#     return book.average_rating < 4
 
 
 # Uses the published date and returns it as just the year to compare against user's input year

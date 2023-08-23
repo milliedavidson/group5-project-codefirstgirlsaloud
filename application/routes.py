@@ -34,6 +34,7 @@ def home():
         print(f"Selected Order By: {selected_order_by}")
 
         books = find_books(
+            selected_genre,
             formatted_category,
             selected_book_length,
             selected_order_by

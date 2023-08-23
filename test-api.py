@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from api import call_api
+from controller.api import call_api
 
 
 class TestCallApi(unittest.TestCase):

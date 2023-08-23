@@ -22,7 +22,6 @@ def call_api(subject, page, timeout=10):
     Parameters:
     subject (str): Search term
     page (int): Page number of results
-    order_by (str): Sort order
     timeout (int): API request timeout in seconds
 
     Raises:

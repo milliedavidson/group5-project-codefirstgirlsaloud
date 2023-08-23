@@ -24,7 +24,6 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
             try:
                 # Create book instance using the Book class
                 book = Book(item)
-                print(book)
 
                 # 1st filter removes anything with missing data
                 if any(
@@ -51,6 +50,9 @@ def find_books(subject, book_length, start_year, end_year, min_results=10):
                 ):
                     # If the book gets through these filters it is added book to results
                     results.append(book)
+
+                    if len(results) >= min_results:  # Stops when 10 are found
+                        break
 
             except KeyError:
                 pass

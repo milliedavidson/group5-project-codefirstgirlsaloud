@@ -1,13 +1,49 @@
+"""
+Book filtering module
+
+Fetch, filter and format books from API based on user criteria
+"""
+
+import traceback
 from datetime import datetime
+
 from controller.api import call_api
 from model.book import Book
 
+# Enums
+class BookLength:
+    """
+    Enumeration for different book lengths.
 
-# MAIN BOOK FILTER FUNCTION
-# Fetches books based on user input and criteria
+    Attributes:
+        SHORT: Represents a short book.
+        MEDIUM: Represents a medium-length book.
+        LONG: Represents a long book.
+    """
+
+    SHORT = "short"
+    MEDIUM = "medium"
+    LONG = "long"
+
+
+# MAIN FUNCTION
 def find_books(
     selected_genre, selected_category, selected_book_length, order_by, min_results=10
 ):
+    """
+    Find and return a list of books matching the criteria
+
+    Params:
+        search_query: Keyword(s) to search books API
+        desired_length: Length category - 'short', 'medium', or 'long'
+        start_year: Minimum published year
+        end_year: Maximum published year
+        min_results: Minimum number of results to return
+
+    Returns:
+        List of Book objects matching criteria, up to min_results
+    """
+
     results = []  # Initialise list to store results
     seen_books = set()  # Maintain a set of seen titles and authors so no duplicates
     page = 0
@@ -55,7 +91,8 @@ def find_books(
                         break
 
             except KeyError:
-                pass
+                # Catches KeyError exceptions and prints the error message
+                traceback.print_exc()
 
         page += 1  # Moves to new page
 
@@ -65,16 +102,41 @@ def find_books(
         return sorted_results[:min_results]  # Returns 10 results (index 0-9)
 
 
+# Custom exceptions
+class BookAttributeError(Exception):
+    """
+    Raised when a book attribute is invalid or missing.
+
+    Attributes:
+        message -- explanation of the error
+    """
+
+
+class BookDataError(Exception):
+    """
+    Raised when book data is invalid or cannot be processed.
+
+    Attributes:
+        message -- explanation of the error
+    """
+
+
 # HELPER FUNCTIONS
-# Pulls the title and authors from book class to make an id
 def get_book_id(book):
-    return book.title, book.authors
+    """Pulls the title and authors from book dict to make an id"""
+    try:
+        return book.title, book.authors
+    except AttributeError as exc:
+        raise BookAttributeError("Could not get book ID attributes") from exc
 
 
-# If fiction - ensures that book.categories is also fiction
-# If non-fiction - compares against certain excluded categories to ensure accurate results
-# When a book is found that doesn't match these conditions, it is returned + filtered out in the find_books function
 def excluded_categories(book, selected_genre, selected_category):
+    """
+    If fiction - ensures that book.categories is also fiction
+    If non-fiction - compares against certain excluded categories to ensure accurate results
+    When a book is found that doesn't match these conditions, 
+    it is returned + filtered out in the find_books function
+    """
     if selected_genre == "fiction":
         if book.categories.lower() != selected_genre:
             return book
@@ -87,12 +149,14 @@ def excluded_categories(book, selected_genre, selected_category):
         )
 
 
-# Formats category for better API endpoint results
-# If fiction and science fiction "q=sciencefiction"
-# If fiction "q=fiction+selected_category"
-# If fiction and one of a selected list "q=subject:selected_category"
-# If non-fiction "q=selected_category"
 def format_category_for_search(selected_category, selected_genre):
+    """
+    Formats category for better API endpoint results
+    If fiction and science fiction "q=sciencefiction"
+    If fiction "q=fiction+selected_category"
+    If fiction and one of a selected list "q=subject:selected_category"
+    If non-fiction "q=selected_category"
+    """
     nonfiction_subject_list = ["Gardening", "Music", "Nature", "Philosophy", "Religion"]
 
     if selected_genre == "fiction" and selected_category == "Science Fiction":
@@ -112,18 +176,25 @@ def format_category_for_search(selected_category, selected_genre):
     return formatted_category
 
 
-# Returns the page count as a word (short, medium, long) that can be compared to user's input length
 def get_book_length(book):
-    if book.page_count < 200:
-        return "short"
-    elif book.page_count <= 400:
-        return "medium"
-    else:
-        return "long"
+    """
+    Returns the page count as a word (short, medium, long) 
+    that can be compared to user's input length
+    """
+    try:
+        if book.page_count < 200:
+            return "short"
+        elif book.page_count <= 400:
+            return "medium"
+        else:
+            return "long"
+    except AttributeError:
+        traceback.print_exc()
+        return None
 
 
-# Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD
-def formatted_date(book):
+def format_date(book):
+    """Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD"""
     try:
         unformatted_date = datetime.strptime(book.published_date, "%d-%m-%Y")
         return book.published_date  # If already in the correct format, return as is
@@ -132,37 +203,42 @@ def formatted_date(book):
             unformatted_date = datetime.strptime(book.published_date, "%Y-%m-%d")
             formatted_date = unformatted_date.strftime("%d-%m-%Y")
             return formatted_date
-        except ValueError:
+        except (AttributeError, ValueError):
+            traceback.print_exc()
             return "N/A"
 
 
-# Formats the published date for HTML
 def format_book_published(book):
-    return f"{formatted_date(book)}\n"
+    """Formats the published date for HTML"""
+    return f"{format_date(book)}\n"
 
 
-# Formats the rating for HTML
 def format_book_rating(book):
-    book_rating = book.average_rating
-    if book_rating == 0:
-        return "No ratings yet"
-    else:
-        return f"{book_rating} stars"
+    """Formats the rating for HTML"""
+    try:
+        book_rating = book.average_rating
+        if book_rating == 0:
+            return "No ratings yet"
+        else:
+            return f"{book_rating} stars"
+    except AttributeError:
+        traceback.print_exc()
+        return "N/A"
 
 
-# Formats the book length for HTML
 def format_book_length(book):
+    """Formats the book length for HTML"""
     return f"{get_book_length(book).capitalize()}, {book.page_count} pages"
 
 
-# Sorts the results based on the order_by user input selection
 def order_results(order_by, results):
+    """Sorts the results based on the order_by user input selection"""
     sorted_results = []
 
     if order_by == "newest":
         sorted_results = sorted(
             results,
-            key=lambda book: datetime.strptime(formatted_date(book), "%d-%m-%Y"),
+            key=lambda book: datetime.strptime(format_date(book), "%d-%m-%Y"),
             reverse=True,
         )
 

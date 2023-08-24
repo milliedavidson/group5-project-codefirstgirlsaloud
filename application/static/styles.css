@@ -206,27 +206,24 @@ form { /* position of filter options using flexbox */
     align-self: center;
 }
 
-.published-date {
+.published-date,
+ .categories-rating,
+ .description {
     font-size: 14px;
 }
 
 .description {
-    font-size: 14px;
     display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
   overflow: hidden;
 }
 
-.categories-rating {
-    font-size: 14px;
-}
-
 .book img {
     order: -1;
-    width: 100px;
-    height: 150px;
+    width: 300px;
     object-fit: cover;
     margin-right: 20px;
+    margin-left: 20px;
     align-self: center;
 }

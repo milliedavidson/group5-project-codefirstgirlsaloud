@@ -1,5 +1,3 @@
-
-
 /* Function to generate categories for user selection based on genre selection (Fiction or Non-Fiction) */
 function updateCategories() {
             /* Identify the two input filters to link up and assign the value of the genre to a variable */
@@ -16,12 +14,11 @@ function updateCategories() {
             /* If statement to decide on which categories to show the user based on the selected genre */
             if (selectedGenre === "fiction") {
                 var categories = [
-                "Classics",
+                "Adventure",
                 "Crime",
                 "Dystopian",
                 "Fantasy",
                 "Graphic Novels",
-                "Historical",
                 "Horror",
                 "LGBTQ+",
                 "Literary",

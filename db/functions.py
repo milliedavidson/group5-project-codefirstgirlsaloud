@@ -6,7 +6,7 @@ from model.book import Book
 # MAIN BOOK FILTER FUNCTION
 # Fetches books based on user input and criteria
 def find_books(
-    selected_genre, selected_category, book_length, order_by, min_results=10
+    selected_genre, selected_category, selected_book_length, order_by, min_results=10
 ):
     results = []  # Initialise list to store results
     seen_books = set()  # Maintain a set of seen titles and authors so no duplicates
@@ -14,15 +14,18 @@ def find_books(
     empty_pages = 0
 
     while len(results) < min_results:
-        items = call_api(selected_category, page)  # Fetch books from API
-        if not items:
+        called_book_data = call_api(selected_category, page)  # Fetch books from API
+
+        # Checks if page is empty
+        if not called_book_data:
             empty_pages += 1
             if (
                 empty_pages == 100
             ):  # When there have been 5 pages in a row with no results the loop ends
                 break
 
-        for item in items:
+        # For each item from those from API endpoint:
+        for item in called_book_data:
             try:
                 # Create book instance using the Book class
                 book = Book(item)
@@ -42,9 +45,9 @@ def find_books(
                     continue
 
                 # 4th filter checks for selected book length and correctly formatted date
-                length = get_book_length(book)
+                book_length = get_book_length(book)
                 date = formatted_date(book)
-                if length == book_length and date != "N/A":
+                if book_length == selected_book_length and date != "N/A":
                     # If the book gets through this filter it is added book to results
                     results.append(book)
 

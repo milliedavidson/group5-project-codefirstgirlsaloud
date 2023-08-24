@@ -18,7 +18,7 @@ def find_books(
         if not items:
             empty_pages += 1
             if (
-                empty_pages == 5
+                empty_pages == 100
             ):  # When there have been 5 pages in a row with no results the loop ends
                 break
 
@@ -28,9 +28,7 @@ def find_books(
                 book = Book(item)
 
                 # 1st filter removes anything with missing data - other than rating which is set to 0
-                if any(
-                    value == "N/A" for value in book.__dict__.values()
-                ):
+                if any(value == "N/A" for value in book.__dict__.values()):
                     continue
 
                 # 2nd filter check for duplicates to ensure unique books in the results
@@ -79,20 +77,35 @@ def excluded_categories(book, selected_genre, selected_category):
             return book
     else:  # (if selected_genre == "non-fiction")
         excluded = {"young adult", "juvenile", "fiction"}
-        return book if any(substring in book.categories.lower() for substring in excluded) else None
+        return (
+            book
+            if any(substring in book.categories.lower() for substring in excluded)
+            else None
+        )
 
 
 # Formats category for better API endpoint results
 # If fiction and science fiction "q=sciencefiction"
 # If fiction "q=fiction+selected_category"
+# If fiction and one of a selected list "q=subject:selected_category"
 # If non-fiction "q=selected_category"
 def format_category_for_search(selected_category, selected_genre):
+    nonfiction_subject_list = ["Gardening", "Music", "Nature", "Philosophy", "Religion"]
+
     if selected_genre == "fiction" and selected_category == "Science Fiction":
         return selected_category.replace(" ", "")
+
     if selected_genre == "fiction":
         formatted_category = "fiction+" + selected_category.replace(" ", "")
+
+    elif (
+        selected_genre == "non-fiction" and selected_category in nonfiction_subject_list
+    ):
+        formatted_category = "subject:" + selected_category
+
     else:
         formatted_category = selected_category.replace(" ", "")
+
     return formatted_category
 
 

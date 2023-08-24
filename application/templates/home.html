@@ -4,24 +4,23 @@
 
 <section class="welcome-wrapper">
     <h4 class="title"> Welcome to ChapterOne </h4>
-    <!-- TODO: change placeholder text -->
-    <p class="message">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-        anim id est laborum.</p>
+    <p class="message">Looking for your next read but not sure where to start? Let Chapter One help you!<br>
+        Using the filters below, set your preferred criteria to help refine and detail your search in order to return a
+        list of
+        recommendations.<br>
+        You'll be cosied up with your next book in no time.</p>
 
 
     <div class="container">
-        <h4> Select from the filters below to generate your personalised reading list:</h4>
+        <h4> Select from the filters below to generate your recommendations:</h4>
 
         <form action="/" method="POST">
 
             <div class="genre-menu">
                 <label for="genre">Genre:</label>
                 <div class="genre-select">
-                    <select id="genre" onchange="updateCategories()">
-                        <option value="0">I am interested in reading...</option>
+                    <select id="genre" onchange="updateCategories()" required>
+                        <option value="">I am interested in...</option>
                         <option value="fiction">Fiction</option>
                         <option value="non-fiction">Non-Fiction</option>
                     </select><br>
@@ -38,17 +37,18 @@
             </div>
 
             <div class="length">
-                <label for="book_length"> Length:</label>
+                <label for="book_length"> Book Length:</label>
                 <div class="length-buttons">
-                    <input id="book_length" type="radio" name="book_length" value="short">Short<br>
+                    <input id="book_length" type="radio" name="book_length" value="short" required>Short<br>
                     <input type="radio" name="book_length" value="medium">Medium<br>
                     <input type="radio" name="book_length" value="long">Long<br>
                 </div>
             </div>
 
             <div class="order-by">
-                <select id="order_by" name="order_by">
-                    <option value="0">Order by...</option>
+                <label for="order_by"> Sort Reading List:</label>
+                <select id="order_by" name="order_by" required>
+                    <option value="">Order by...</option>
                     <option value="newest">Newest</option>
                     <option value="top rated">Top Rated</option>
                 </select><br>
@@ -57,6 +57,8 @@
             <div class="submit-button">
                 <input type="submit" class="button" value="Find books">
             </div>
+
+            <!--Hidden recording of genre input type to be used in category formatting later-->
             <input type="hidden" id="selected_genre" name="selected_genre" value="">
         </form>
     </div>

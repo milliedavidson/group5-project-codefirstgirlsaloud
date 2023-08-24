@@ -83,13 +83,16 @@ def excluded_categories(book, selected_genre, selected_category):
 
 
 # Formats category for better API endpoint results
+# If fiction and science fiction "q=sciencefiction"
 # If fiction "q=fiction+selected_category"
 # If non-fiction "q=selected_category"
 def format_category_for_search(selected_category, selected_genre):
+    if selected_genre == "fiction" and selected_category == "Science Fiction":
+        return selected_category.replace(" ", "")
     if selected_genre == "fiction":
-        formatted_category = "fiction+" + selected_category
+        formatted_category = "fiction+" + selected_category.replace(" ", "")
     else:
-        formatted_category = selected_category
+        formatted_category = selected_category.replace(" ", "")
     return formatted_category
 
 

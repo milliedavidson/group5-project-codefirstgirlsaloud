@@ -167,13 +167,12 @@ form { /* position of filter options using flexbox */
     padding-left: 20px;
     padding-right: 20px;
     margin: 60px auto 0; /* top margin to 60px and centers container horizontally */
-
+    font-family: Nobile;
 }
 
 .book-container h4 {
     text-align: center;
     margin: 40px;
-    font-family: Nobile; /* edit these to change appearance of 'your reading list' sentence*/
     color: #283618;
     font-size: 24px;
 }
@@ -181,13 +180,12 @@ form { /* position of filter options using flexbox */
 .book {
     display: flex;
     align-items: flex-start;
-    font-family: Nobile;
   }
 
   .book-details {
     display: flex;
     flex-direction: column;
-    margin: 30px;
+    margin: 20px;
   }
 
   .title-author {
@@ -203,7 +201,8 @@ form { /* position of filter options using flexbox */
 
   .book-preview,
    .user-options {
-    margin-left: 20px;
+    display: flex;
+    margin: 20px;
     align-self: center;
 }
 
@@ -227,4 +226,13 @@ form { /* position of filter options using flexbox */
     margin-right: 20px;
     margin-left: 20px;
     align-self: center;
+}
+
+.user-options {
+    justify-content: center;
+}
+
+.user-print {
+    font-size: 20px;
+    color: #283618;
 }

@@ -219,6 +219,7 @@ form { /* position of filter options using flexbox */
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 .book img {

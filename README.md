@@ -71,6 +71,8 @@ This should start your Flask app and make it accessible at a local address like 
 
 Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should see your Flask application's home page.
 
+<img src= "https://github.com/milliedavidson/CFGProject/blob/main/images/website.png">
+
 <div align="right">[ <a href="#chapter-one">↑ Back to top ↑</a> ]</div>
 
 ---

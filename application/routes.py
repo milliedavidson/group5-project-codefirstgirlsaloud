@@ -23,12 +23,6 @@ def home():
         selected_book_length = request.form["book_length"]
         selected_order_by = request.form["order_by"]
 
-        # Delete later on - just prints to console
-        print(f"Selected Genre: {selected_genre}")
-        print(f"Selected Category: {selected_category}")
-        print(f"Selected Book Length: {selected_book_length}")
-        print(f"Selected Order By: {selected_order_by}")
-
         books = find_books(
             selected_genre,
             formatted_category,

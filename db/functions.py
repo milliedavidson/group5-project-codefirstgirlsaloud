@@ -48,7 +48,8 @@ def find_books(
                 # 4th filter checks for selected book length
                 # year = get_published_year(book)
                 length = get_book_length(book)
-                if length == book_length:
+                date = formatted_date(book)
+                if length == book_length and date != "N/A":
                     # If the book gets through this filter it is added book to results
                     results.append(book)
 
@@ -80,8 +81,8 @@ def excluded_categories(book, selected_genre, selected_category):
         if book.categories.lower() != selected_genre:
             return book
     else:  # (if selected_genre == "non-fiction")
-        if book.categories.lower() != selected_category.lower():
-            return book
+        excluded = {"young adult", "juvenile", "biography", "fiction"}
+        return book if any(substring in book.categories.lower() for substring in excluded) else None
 
 
 # Formats category for better API endpoint results
@@ -117,11 +118,15 @@ def get_book_length(book):
 # Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD
 def formatted_date(book):
     try:
-        unformatted_date = datetime.strptime(book.published_date, "%Y-%m-%d")
-        formatted_date = unformatted_date.strftime("%d-%m-%Y")
-        return formatted_date
+        unformatted_date = datetime.strptime(book.published_date, "%d-%m-%Y")
+        return book.published_date  # If already in the correct format, return as is
     except ValueError:
-        return "N/A"
+        try:
+            unformatted_date = datetime.strptime(book.published_date, "%Y-%m-%d")
+            formatted_date = unformatted_date.strftime("%d-%m-%Y")
+            return formatted_date
+        except ValueError:
+            return "N/A"
 
 
 # Formats the published date for HTML
@@ -150,7 +155,7 @@ def order_results(order_by, results):
     if order_by == "newest":
         sorted_results = sorted(
             results,
-            key=lambda book: datetime.strptime(book.published_date, "%Y-%m-%d"),
+            key=lambda book: datetime.strptime(formatted_date(book), "%d-%m-%Y"),
             reverse=True,
         )
 

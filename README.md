@@ -2,12 +2,12 @@
 
 <br>
 
-# CHAPTER ONE 
-## An overview 📚
+# ChapterOne
+## 📚 An overview
 
-Finding your next great read can be overwhelming with the huge selection of books out there. Chapter One is here to help you cut through the clutter and discover books you'll love.
+Finding your next great read can be overwhelming with the huge selection of books out there. ChapterOne is here to help you cut through the clutter and discover books you'll love.
 
-Chapter One makes it easy to search through millions of books and filter by your preferences like genre, length, publication date, and reviews. No more endless scrolling and guessing - just tell Chapter One what you're looking for and get tailored recommendations.
+ChapterOne makes it easy to search through millions of books and filter by your preferences like genre, length, publication date, and reviews. No more endless scrolling and guessing - just tell ChapterOne what you're looking for and get tailored recommendations.
 
 **Key features:**
 
@@ -21,13 +21,28 @@ Chapter One makes it easy to search through millions of books and filter by your
 
 ✨ Hassle-free way to find your next great read among millions of options
 
-With Chapter One, you'll spend less time searching and more time reading. *No more choice paralysis or confusion* - just great book recommendations to suit your taste. Find your next great read today!
+With ChapterOne, you'll spend less time searching and more time reading. *No more choice paralysis or confusion* - just great book recommendations to suit your taste. Find your next great read today!
+
+<br>
+
+## Tech stack
+
+[<img height="32" width="32" alt="PyCharm" src="https://cdn.worldvectorlogo.com/logos/pycharm.svg"/>]()
+[<img height="32" width="32" alt="Python Logo" src="https://cdn.worldvectorlogo.com/logos/python-5.svg"/>]()
+[<img height="32" width="32" alt="HTML5 Logo" src="https://www.w3.org/html/logo/badge/html5-badge-h-solo.png"/>]()
+[<img height="32" width="32" alt="CSS3 Logo" src="https://cdn.worldvectorlogo.com/logos/css-3.svg"/>]()
+[<img height="32" width="32" alt="JS Logo" src="https://cdn.worldvectorlogo.com/logos/logo-javascript.svg"/>]()
+[<img height="32" width="32" alt="Git" src="https://cdn.worldvectorlogo.com/logos/git-icon.svg"/>]()
+[<img height="32" width="32" alt="VS Code Logo" src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg"/>]()
+[<img height="32" width="32" alt="Flask" src="https://cdn.worldvectorlogo.com/logos/flask.svg"/>]()
 
 <br>
 
 ## Table of Contents
 
-- [Chapter One](#chapter-one)
+- [ChapterOne](#chapterone)
+  - [An overview](#-an-overview)
+  - [Tech stack](#tech-stack)
   - [Our must haves](#our-must-haves)
   - [Our should haves](#our-should-haves)
   - [Our could haves](#our-could-haves)

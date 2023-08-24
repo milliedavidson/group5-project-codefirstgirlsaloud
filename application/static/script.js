@@ -18,11 +18,10 @@ function updateCategories() {
                 "Crime",
                 "Dystopian",
                 "Fantasy",
-                "Graphic Novels",
                 "Horror",
                 "LGBTQ+",
                 "Literary",
-                "Mystery & Detective",
+                "Mystery",
                 "Romance",
                 "Science Fiction",
                 "Thriller"
@@ -31,7 +30,7 @@ function updateCategories() {
                 var categories = [
                 "Business",
                 "Cooking",
-                "Crafts",
+                "Crafts & Hobbies",
                 "Gardening",
                 "Music",
                 "Nature",

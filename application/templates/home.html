@@ -17,8 +17,8 @@
             <div class="genre-menu">
                 <label for="genre">Genre:</label>
                 <div class="genre-select">
-                    <select id="genre" onchange="updateCategories()">
-                        <option value="0">I am interested in...</option>
+                    <select id="genre" onchange="updateCategories()" required>
+                        <option value="">I am interested in...</option>
                         <option value="fiction">Fiction</option>
                         <option value="non-fiction">Non-Fiction</option>
                     </select><br>
@@ -45,8 +45,8 @@
 
             <div class="order-by">
                 <label for="order_by"> Sort Reading List:</label>
-                <select id="order_by" name="order_by">
-                    <option value="0">Order by...</option>
+                <select id="order_by" name="order_by" required>
+                    <option value="">Order by...</option>
                     <option value="newest">Newest</option>
                     <option value="top rated">Top Rated</option>
                 </select><br>

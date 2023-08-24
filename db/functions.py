@@ -10,6 +10,44 @@ from datetime import datetime
 from controller.api import call_api
 from model.book import Book
 
+
+# Custom exceptions
+class ApiError(Exception):
+    """
+    Exception raised for errors related to API interactions.
+
+    Attributes:
+        message -- explanation of the error
+    """
+
+
+class ParsingError(Exception):
+    """
+    Exception raised for errors during data parsing.
+
+    Attributes:
+        message -- explanation of the error
+    """
+
+
+class BookAttributeError(Exception):
+    """
+    Raised when a book attribute is invalid or missing.
+
+    Attributes:
+        message -- explanation of the error
+    """
+
+
+class BookDataError(Exception):
+    """
+    Raised when book data is invalid or cannot be processed.
+
+    Attributes:
+        message -- explanation of the error
+    """
+
+
 # Enums
 class BookLength:
     """
@@ -33,11 +71,11 @@ def find_books(
     """
     Find and return a list of books matching the criteria
 
-    Params:
-        search_query: Keyword(s) to search books API
-        desired_length: Length category - 'short', 'medium', or 'long'
-        start_year: Minimum published year
-        end_year: Maximum published year
+     Params:
+        selected_genre: Selected genre ('fiction' or 'non-fiction')
+        selected_category: Selected category for filtering
+        selected_book_length: Desired book length category
+        order_by: Sorting criterion ('newest' or 'top rated')
         min_results: Minimum number of results to return
 
     Returns:
@@ -50,7 +88,11 @@ def find_books(
     empty_pages = 0
 
     while len(results) < min_results:
-        called_book_data = call_api(selected_category, page)  # Fetch books from API
+        try:
+            called_book_data = call_api(selected_category, page)  # Fetch books from API
+        except ApiError:
+            print("Error calling API")
+            return []
 
         # Checks if page is empty
         if not called_book_data:
@@ -66,7 +108,7 @@ def find_books(
                 # Create book instance using the Book class
                 book = Book(item)
 
-                # 1st filter removes anything with missing data - other than rating which is set to 0
+                # 1st filter removes anything with missing data - other than a 0 rating
                 if any(value == "N/A" for value in book.__dict__.values()):
                     continue
 
@@ -90,9 +132,9 @@ def find_books(
                     if len(results) == min_results:  # Stops when 10 are found
                         break
 
-            except KeyError:
-                # Catches KeyError exceptions and prints the error message
-                traceback.print_exc()
+            # Catches KeyErrors & ParsingErrors and prints the error message
+            except (KeyError, ParsingError) as exception:
+                print("Error processing book data: ", exception)
 
         page += 1  # Moves to new page
 
@@ -100,25 +142,6 @@ def find_books(
         sorted_results = order_results(order_by, results)
 
         return sorted_results[:min_results]  # Returns 10 results (index 0-9)
-
-
-# Custom exceptions
-class BookAttributeError(Exception):
-    """
-    Raised when a book attribute is invalid or missing.
-
-    Attributes:
-        message -- explanation of the error
-    """
-
-
-class BookDataError(Exception):
-    """
-    Raised when book data is invalid or cannot be processed.
-
-    Attributes:
-        message -- explanation of the error
-    """
 
 
 # HELPER FUNCTIONS
@@ -134,7 +157,7 @@ def excluded_categories(book, selected_genre, selected_category):
     """
     If fiction - ensures that book.categories is also fiction
     If non-fiction - compares against certain excluded categories to ensure accurate results
-    When a book is found that doesn't match these conditions, 
+    When a book is found that doesn't match these conditions,
     it is returned + filtered out in the find_books function
     """
     if selected_genre == "fiction":
@@ -178,7 +201,7 @@ def format_category_for_search(selected_category, selected_genre):
 
 def get_book_length(book):
     """
-    Returns the page count as a word (short, medium, long) 
+    Returns the page count as a word (short, medium, long)
     that can be compared to user's input length
     """
     try:
@@ -188,9 +211,8 @@ def get_book_length(book):
             return "medium"
         else:
             return "long"
-    except AttributeError:
-        traceback.print_exc()
-        return None
+    except AttributeError as exc:
+        raise BookDataError("Could not get book length") from exc
 
 
 def format_date(book):

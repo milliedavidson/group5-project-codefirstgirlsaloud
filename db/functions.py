@@ -27,7 +27,7 @@ def find_books(
                 # Create book instance using the Book class
                 book = Book(item)
 
-                # 1st filter removes anything with missing data
+                # 1st filter removes anything with missing data - other than rating which is set to 0
                 if any(
                     value == "N/A" for value in book.__dict__.values()
                 ):
@@ -56,29 +56,29 @@ def find_books(
             except KeyError:
                 pass
 
-        page += 1  # Moves to new page by adding a random number between 1-10
+        page += 1  # Moves to new page
 
-        # 5th filter to sort results based on user selection
+        # Calls function to sort final results based on user selection
         sorted_results = order_results(order_by, results)
 
         return sorted_results[:min_results]  # Returns 10 results (index 0-9)
 
 
 # HELPER FUNCTIONS
-# Pulls the title and authors from book dict to make an id
+# Pulls the title and authors from book class to make an id
 def get_book_id(book):
     return book.title, book.authors
 
 
 # If fiction - ensures that book.categories is also fiction
-# If non-fiction - ensures that book.categories is the selected_category e.g. cooking
+# If non-fiction - compares against certain excluded categories to ensure accurate results
 # When a book is found that doesn't match these conditions, it is returned + filtered out in the find_books function
 def excluded_categories(book, selected_genre, selected_category):
     if selected_genre == "fiction":
         if book.categories.lower() != selected_genre:
             return book
     else:  # (if selected_genre == "non-fiction")
-        excluded = {"young adult", "juvenile", "biography", "fiction"}
+        excluded = {"young adult", "juvenile", "fiction"}
         return book if any(substring in book.categories.lower() for substring in excluded) else None
 
 

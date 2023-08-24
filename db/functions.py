@@ -21,8 +21,6 @@ def find_books(
                 empty_pages == 5
             ):  # When there have been 5 pages in a row with no results the loop ends
                 break
-        else:
-            empty_pages = 0
 
         for item in items:
             try:
@@ -45,8 +43,7 @@ def find_books(
                 if excluded_categories(book, selected_genre, selected_category):
                     continue
 
-                # 4th filter checks for selected book length
-                # year = get_published_year(book)
+                # 4th filter checks for selected book length and correctly formatted date
                 length = get_book_length(book)
                 date = formatted_date(book)
                 if length == book_length and date != "N/A":
@@ -94,15 +91,6 @@ def format_category_for_search(selected_category, selected_genre):
     else:
         formatted_category = selected_category
     return formatted_category
-
-
-# Uses the published date and returns it as just the year to compare against user's input year
-def get_published_year(book):
-    try:
-        datetime.strptime(book.published_date, "%Y-%m-%d")
-        return int(book.published_date[:4])
-    except ValueError:
-        return 0
 
 
 # Returns the page count as a word (short, medium, long) that can be compared to user's input length

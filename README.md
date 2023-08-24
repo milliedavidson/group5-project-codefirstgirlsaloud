@@ -43,78 +43,15 @@ With ChapterOne, you'll spend less time searching and more time reading. *No mor
 - [ChapterOne](#chapterone)
   - [An overview](#-an-overview)
   - [Tech stack](#tech-stack)
-  - [Our must haves](#our-must-haves)
-  - [Our should haves](#our-should-haves)
-  - [Our could haves](#our-could-haves)
-  - [Website mockup](#website-mockup)
+  - [Installation](#installation)
+  - [Website](#website)
 
 <br>
 
-## Our must haves
-
-The **MVP (Minimum Viable Product).** These are the absolute essentials:
+## 🧑‍💻 Installation
 
 <br>
 
-📗 Accepts user input of genres
-
-📙 In-built filters to return books of 4 stars and above
-
-📘 Returns output of a reading list with 10 recommendations
-
-📕 Book covers, titles, authors, and synopses presented for each item on list
+## Website
 
 <br>
-
-## Our should haves
-
-We should definitely do these if there's time:
-
-<br>
-
-📗 Optional filtering options: language, subject, book length, year published and age rating
-
-📙 Export to PDF/print/email list options
-
-📘 More information page – clicking a book from the list will take you to a page containing further details
-
-📕 Ability to add or remove books to a saved reading list
-
-<br>
-
-## Our could haves
-
-**Would be nice to have but not essential:**
-
-<br>
-
-📗 User login storing search history, previously generated lists, future reading list
-
-📙 Link account to GoodReads, Google Account – export list option to associated accounts
-
-📘 “Show me more”/”Remove from recommendations” buttons
-
-📕 “I’ve read this” button for books the user has already read (removes from future recommendation lists)
-
-📗 Sample passage generation – presents the user with a short sample from book to preview
-
-📙 Where to buy links with pricing
-
-📘 Caching API requests from Google to reduce overhead and optimise performance
-
-📕 User settings – advanced customisation options e.g. “Include read books in future lists” and “Default language”
-
-<br>
-
-## Website mockup
-
-<img src="https://github.com/milliedavidson/CFGProject/blob/688f377ad4027eedf16026539824e4df3bbff4db/screenshots/website-mockup-1.png">
-
-<img src="https://github.com/milliedavidson/CFGProject/blob/688f377ad4027eedf16026539824e4df3bbff4db/screenshots/website-mockup-2.png">
-
-<br>
-
-<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXQ0NDJ6bTJoanc2N2FpZGl1eW5xamdnZ205aTN4ajdwa25ncXN5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9gA3QdIedBzrzBHlT0/giphy.gif">
-
-<br>
-

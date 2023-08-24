@@ -167,13 +167,12 @@ form { /* position of filter options using flexbox */
     padding-left: 20px;
     padding-right: 20px;
     margin: 60px auto 0; /* top margin to 60px and centers container horizontally */
-
+    font-family: Nobile;
 }
 
 .book-container h4 {
     text-align: center;
     margin: 40px;
-    font-family: Nobile; /* edit these to change appearance of 'your reading list' sentence*/
     color: #283618;
     font-size: 24px;
 }
@@ -181,13 +180,12 @@ form { /* position of filter options using flexbox */
 .book {
     display: flex;
     align-items: flex-start;
-    font-family: Nobile;
   }
 
   .book-details {
     display: flex;
     flex-direction: column;
-    margin: 30px;
+    margin: 20px;
   }
 
   .title-author {
@@ -201,32 +199,43 @@ form { /* position of filter options using flexbox */
     margin-bottom: 5px;
   }
 
-  .book-preview {
-    margin-left: 20px;
+  .book-preview,
+   .user-options {
+    display: flex;
+    margin: 20px;
     align-self: center;
 }
 
-.published-date {
+.published-date,
+ .categories-rating,
+ .description {
     font-size: 14px;
 }
 
 .description {
-    font-size: 14px;
+    text-align: justify;
+  text-justify: inter-word;
     display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
   overflow: hidden;
-}
-
-.categories-rating {
-    font-size: 14px;
+  overflow-y: scroll;
 }
 
 .book img {
     order: -1;
-    width: 100px;
-    height: 150px;
+    width: 300px;
     object-fit: cover;
     margin-right: 20px;
+    margin-left: 20px;
     align-self: center;
+}
+
+.user-options {
+    justify-content: center;
+}
+
+.user-print {
+    font-size: 20px;
+    color: #283618;
 }

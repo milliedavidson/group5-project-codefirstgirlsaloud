@@ -1,31 +1,34 @@
 <img src ="https://github.com/milliedavidson/CFGProject/blob/main/images/logo.png">
 
-<br>
+---
 
-# ChapterOne
-## 📚 An overview
+# ChapterOne 📘 📘 📗 📗 📙 📙 📕 📕 
 
-Finding your next great read can be overwhelming with the huge selection of books out there. ChapterOne is here to help you cut through the clutter and discover books you'll love.
+<a href="#-an-overview">An overview</a> | <a href="#get-started">Get started</a>
 
-ChapterOne makes it easy to search through millions of books and filter by your preferences like genre, length, publication date, and reviews. No more endless scrolling and guessing - just tell ChapterOne what you're looking for and get tailored recommendations.
+
+
+## An overview
+
+Finding your next great read can be overwhelming with the huge selection of books out there. ChapterOne makes it easy to search through millions of books and filter by your preferences.
+
+No more endless scrolling and guessing - just tell ChapterOne what you're looking for to get tailored recommendations.
+
+---
 
 **Key features:**
 
-✨ Intelligent search and advanced filtering to find books that match your exact criteria
+✨ Get recommendations across multiple parameters like genre, category and length
 
-✨ Get recommendations across multiple parameters like genre, length and publication date
-
-✨ Discover books you may not have found on your own but will love based on your tastes
+✨ Discover books you may not have found on your own but will love 
 
 ✨ Simple and intuitive interface allows you to fine-tune and customize your search
 
 ✨ Hassle-free way to find your next great read among millions of options
 
-With ChapterOne, you'll spend less time searching and more time reading. *No more choice paralysis or confusion* - just great book recommendations to suit your taste. Find your next great read today!
+---
 
-<br>
-
-## Tech stack
+**Tech stack:**
 
 [<img height="32" width="32" alt="PyCharm" src="https://cdn.worldvectorlogo.com/logos/pycharm.svg"/>]()
 [<img height="32" width="32" alt="Python Logo" src="https://cdn.worldvectorlogo.com/logos/python-5.svg"/>]()
@@ -36,24 +39,36 @@ With ChapterOne, you'll spend less time searching and more time reading. *No mor
 [<img height="32" width="32" alt="VS Code Logo" src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg"/>]()
 [<img height="32" width="32" alt="Flask" src="https://cdn.worldvectorlogo.com/logos/flask.svg"/>]()
 
-<br>
+---
 
-## Table of Contents
+<div align="right">[ <a href="#table-of-contents">↑ Back to top ↑</a> ]</div>
 
-- [ChapterOne](#chapterone)
-  - [An overview](#-an-overview)
-  - [Tech stack](#tech-stack)
-  - [Installation](#installation)
-  - [Website](#website)
+## Get started 
 
-<br>
+1. Install Dependencies:
 
-## 🧑‍💻 Installation
+Before you start, make sure you have the required packages installed. Open a terminal/command prompt and navigate to your project directory. Run the following command to install the required packages listed in your requirements.txt file:
 
-<br>
+```bash
+pip install -r requirements.txt
+```
 
-## Website
+2. Run the Flask App:
 
-<br>
+Assuming that main.py is the main entry point of your Flask application, you can run the app by executing the following command in the terminal/command prompt within your project directory:
 
+```bash
+python main.py
+```
 
+This should start your Flask app and make it accessible at a local address like http://127.0.0.1:5000/.
+
+3. Access the Website:
+
+Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should see your Flask application's home page.
+
+<div align="right">[ <a href="#table-of-contents">↑ Back to top ↑</a> ]</div>
+
+---
+
+> 💡 For instructions on how to [?](https://github.com/aregtech/areg-sdk/wiki/03.-Software-build#build-with-cmake-cmakeliststxt) </details>

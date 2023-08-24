@@ -4,7 +4,7 @@
 
 # ChapterOne 📘 📘 📗 📗 📙 📙 📕 📕 
 
-<a href="#-an-overview">An overview</a> | <a href="#get-started">Get started</a>
+<a href="#-an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#get-started">Get started</a>
 
 
 
@@ -39,13 +39,13 @@ No more endless scrolling and guessing - just tell ChapterOne what you're lookin
 [<img height="32" width="32" alt="VS Code Logo" src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg"/>]()
 [<img height="32" width="32" alt="Flask" src="https://cdn.worldvectorlogo.com/logos/flask.svg"/>]()
 
----
+<div align="right">[ <a href="#chapter-one">↑ Back to top ↑</a> ]</div>
 
-<div align="right">[ <a href="#table-of-contents">↑ Back to top ↑</a> ]</div>
+---
 
 ## Get started 
 
-1. Install Dependencies:
+**1. Install Dependencies**
 
 Before you start, make sure you have the required packages installed. Open a terminal/command prompt and navigate to your project directory. Run the following command to install the required packages listed in your requirements.txt file:
 
@@ -53,7 +53,9 @@ Before you start, make sure you have the required packages installed. Open a ter
 pip install -r requirements.txt
 ```
 
-2. Run the Flask App:
+---
+
+**2. Run the Flask App**
 
 Assuming that main.py is the main entry point of your Flask application, you can run the app by executing the following command in the terminal/command prompt within your project directory:
 
@@ -63,12 +65,19 @@ python main.py
 
 This should start your Flask app and make it accessible at a local address like http://127.0.0.1:5000/.
 
-3. Access the Website:
+---
+
+**3. Access the Website**
 
 Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should see your Flask application's home page.
 
-<div align="right">[ <a href="#table-of-contents">↑ Back to top ↑</a> ]</div>
+<div align="right">[ <a href="#chapter-one">↑ Back to top ↑</a> ]</div>
 
 ---
 
-> 💡 For instructions on how to [?](https://github.com/aregtech/areg-sdk/wiki/03.-Software-build#build-with-cmake-cmakeliststxt) </details>
+> 💡 For instructions on how to [?](https://) </details>
+
+---
+
+## Contributors
+

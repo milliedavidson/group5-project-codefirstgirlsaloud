@@ -213,6 +213,8 @@ form { /* position of filter options using flexbox */
 }
 
 .description {
+    text-align: justify;
+  text-justify: inter-word;
     display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;

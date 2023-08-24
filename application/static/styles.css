@@ -201,7 +201,8 @@ form { /* position of filter options using flexbox */
     margin-bottom: 5px;
   }
 
-  .book-preview {
+  .book-preview,
+   .user-options {
     margin-left: 20px;
     align-self: center;
 }

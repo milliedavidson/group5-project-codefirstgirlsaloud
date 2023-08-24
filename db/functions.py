@@ -21,15 +21,13 @@ def find_books(
                 empty_pages == 5
             ):  # When there have been 5 pages in a row with no results the loop ends
                 break
-        else:
-            empty_pages = 0
 
         for item in items:
             try:
                 # Create book instance using the Book class
                 book = Book(item)
 
-                # 1st filter removes anything with missing data
+                # 1st filter removes anything with missing data - other than rating which is set to 0
                 if any(
                     value == "N/A" for value in book.__dict__.values()
                 ):
@@ -45,10 +43,10 @@ def find_books(
                 if excluded_categories(book, selected_genre, selected_category):
                     continue
 
-                # 4th filter checks for selected book length
-                # year = get_published_year(book)
+                # 4th filter checks for selected book length and correctly formatted date
                 length = get_book_length(book)
-                if length == book_length:
+                date = formatted_date(book)
+                if length == book_length and date != "N/A":
                     # If the book gets through this filter it is added book to results
                     results.append(book)
 
@@ -58,50 +56,44 @@ def find_books(
             except KeyError:
                 pass
 
-        page += 1  # Moves to new page by adding a random number between 1-10
+        page += 1  # Moves to new page
 
-        # 5th filter to sort results based on user selection
+        # Calls function to sort final results based on user selection
         sorted_results = order_results(order_by, results)
 
         return sorted_results[:min_results]  # Returns 10 results (index 0-9)
 
 
 # HELPER FUNCTIONS
-# Pulls the title and authors from book dict to make an id
+# Pulls the title and authors from book class to make an id
 def get_book_id(book):
     return book.title, book.authors
 
 
 # If fiction - ensures that book.categories is also fiction
-# If non-fiction - ensures that book.categories is the selected_category e.g. cooking
+# If non-fiction - compares against certain excluded categories to ensure accurate results
 # When a book is found that doesn't match these conditions, it is returned + filtered out in the find_books function
 def excluded_categories(book, selected_genre, selected_category):
     if selected_genre == "fiction":
         if book.categories.lower() != selected_genre:
             return book
     else:  # (if selected_genre == "non-fiction")
-        if book.categories.lower() != selected_category.lower():
-            return book
+        excluded = {"young adult", "juvenile", "fiction"}
+        return book if any(substring in book.categories.lower() for substring in excluded) else None
 
 
 # Formats category for better API endpoint results
+# If fiction and science fiction "q=sciencefiction"
 # If fiction "q=fiction+selected_category"
 # If non-fiction "q=selected_category"
 def format_category_for_search(selected_category, selected_genre):
+    if selected_genre == "fiction" and selected_category == "Science Fiction":
+        return selected_category.replace(" ", "")
     if selected_genre == "fiction":
-        formatted_category = "fiction+" + selected_category
+        formatted_category = "fiction+" + selected_category.replace(" ", "")
     else:
-        formatted_category = selected_category
+        formatted_category = selected_category.replace(" ", "")
     return formatted_category
-
-
-# Uses the published date and returns it as just the year to compare against user's input year
-def get_published_year(book):
-    try:
-        datetime.strptime(book.published_date, "%Y-%m-%d")
-        return int(book.published_date[:4])
-    except ValueError:
-        return 0
 
 
 # Returns the page count as a word (short, medium, long) that can be compared to user's input length
@@ -117,11 +109,15 @@ def get_book_length(book):
 # Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD
 def formatted_date(book):
     try:
-        unformatted_date = datetime.strptime(book.published_date, "%Y-%m-%d")
-        formatted_date = unformatted_date.strftime("%d-%m-%Y")
-        return formatted_date
+        unformatted_date = datetime.strptime(book.published_date, "%d-%m-%Y")
+        return book.published_date  # If already in the correct format, return as is
     except ValueError:
-        return "N/A"
+        try:
+            unformatted_date = datetime.strptime(book.published_date, "%Y-%m-%d")
+            formatted_date = unformatted_date.strftime("%d-%m-%Y")
+            return formatted_date
+        except ValueError:
+            return "N/A"
 
 
 # Formats the published date for HTML
@@ -150,7 +146,7 @@ def order_results(order_by, results):
     if order_by == "newest":
         sorted_results = sorted(
             results,
-            key=lambda book: datetime.strptime(book.published_date, "%Y-%m-%d"),
+            key=lambda book: datetime.strptime(formatted_date(book), "%d-%m-%Y"),
             reverse=True,
         )
 

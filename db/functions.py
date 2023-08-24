@@ -124,7 +124,7 @@ def find_books(
 
                 # 4th filter checks for selected book length and correctly formatted date
                 book_length = get_book_length(book)
-                date = formatted_date(book)
+                date = format_date(book)
                 if book_length == selected_book_length and date != "N/A":
                     # If the book gets through this filter it is added book to results
                     results.append(book)

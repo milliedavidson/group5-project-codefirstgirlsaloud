@@ -27,9 +27,3 @@ def home():
         return render_template('results.html', books=books)
     else:
         return render_template('home.html')
-
-
-# Routes to 404 page
-@app.errorhandler(404)
-def page_not_found():
-    return render_template('404.html'), 404

@@ -1,4 +1,4 @@
-<img src ="https://github.com/milliedavidson/CFGProject/tree/main/application/static/images/logo.png">
+<img src ="https://github.com/milliedavidson/CFGProject/blob/main/application/static/images/logo.png">
 
 ---
 
@@ -86,7 +86,7 @@ Flask provides a local server that is intended for **testing and development pur
 
 ---
 
-<img src= "https://github.com/milliedavidson/CFGProject/tree/main/application/static/images/demo.gif">
+<img src= "https://github.com/milliedavidson/CFGProject/blob/main/application/static/images/demo.gif">
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
 
@@ -98,7 +98,7 @@ Flask provides a local server that is intended for **testing and development pur
 
 Open the terminal (MacOS & Linux) or command prompt (Windows) on your computer. This is the command-line interface where you can type commands.
 
-<img src= "https://github.com/milliedavidson/CFGProject/tree/main/application/static/images/terminal.png">
+<img src= "https://github.com/milliedavidson/CFGProject/blob/main/application/static/images/terminal.png">
 
 --- 
 

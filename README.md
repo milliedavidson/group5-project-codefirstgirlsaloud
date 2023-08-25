@@ -73,13 +73,13 @@ main.py is the main entry point of the Flask application. You can run the app by
 python main.py
 ```
 
-This should start your Flask app and make it accessible at the local address http://127.0.0.1:5000/.
+This should start your Flask app and make it accessible at the local address http://127.0.0.1:5001.
 
 ---
 
 **4. Access the Website 🤓**
 
-Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should see your Flask application's home page, ChapterOne.
+Open a web browser and navigate to the URL http://127.0.0.1:5001. You should see your Flask application's home page, ChapterOne.
 
 > ⚠️ ⚠️ ⚠️ ⚠️  
 Flask provides a local server that is intended for **testing and development purposes only**. <a href="https://flask.palletsprojects.com/en/2.3.x/security/" target="_blank">Read about security considerations here.</a> </details>

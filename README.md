@@ -4,7 +4,7 @@
 
 # ChapterOne 📘 📘 📗 📗 📙 📙 📕 📕 
 
-<a href="#an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#testing">Testing</a> | <a href="#command-line-101-🧑 🧑‍💻">Command Line 101</a> | <a href="#contributors">Contributors</a> | <a href="#special-thanks- 🙏">Special thanks</a> | <a href="#license">License</a> | 
+<a href="#an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#command-line-101">Command Line 101</a> | <a href="#contributors">Contributors</a> | <a href="#special-thanks-🙏">Special thanks</a> | <a href="#license">License</a> | 
 
 ## An overview
 
@@ -45,7 +45,7 @@ Finding your next great read can be overwhelming with the huge selection of book
 
 **1. Clone the repository**
 
-To get started, you'll need to clone the project's repository to your local machine. Open a terminal/command prompt and [navigate to the directory](#command-line-101-🧑🧑‍💻) where you want to store the project. Then, run the following command to clone the repository:
+To get started, you'll need to clone the project's repository to your local machine. Open a terminal/command prompt and [navigate to the directory](#command-line-101) where you want to store the project. Then, run the following command to clone the repository:
 
 ```bash
 git clone https://github.com/milliedavidson/CFGProject.git
@@ -92,19 +92,13 @@ Flask provides a local server that is intended for **testing and development pur
 
 **5. Have fun 🤓**
 
-<img src= "https://github.com/milliedavidson/CFGProject/blob/main/images/reading-list.png">
+<img src= "https://github.com/milliedavidson/CFGProject/blob/main/images/demo.gif">
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
 
 ---
 
-## Testing
-
-<div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
-
----
-
-## Command line 101 🧑‍💻
+## Command line 101
 
 **1. Open terminal** 
 
@@ -209,20 +203,20 @@ This project is licensed under the [MIT License.](https://github.com/milliedavid
 ```text
 Copyright 2023 ChapterOne
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
-associated documentation files (the “Software”), to deal in the Software without restriction,
-including without limitation the rights to use, copy, modify, merge, publish, distribute,
-sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
+and associated documentation files (the “Software”), to deal in the Software without
+restriction, including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial
-portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or
+substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
-NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
-OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>

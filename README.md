@@ -4,7 +4,7 @@
 
 # ChapterOne 📘 📘 📗 📗 📙 📙 📕 📕 
 
-<a href="#an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#command-line-101">Command Line 101</a> | <a href="#contributors">Contributors</a> | <a href="#special-thanks-🙏">Special thanks</a> | <a href="#license">License</a> | 
+<a href="#an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#command-line-101">Command Line 101</a> | <a href="#contributors">Contributors</a> | <a href="#special-thanks">Special thanks</a> | <a href="#license">License</a>
 
 ## An overview
 
@@ -77,20 +77,14 @@ This should start your Flask app and make it accessible at the local address htt
 
 ---
 
-**4. Access the Website**
+**4. Access the Website 🤓**
 
 Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should see your Flask application's home page, ChapterOne.
 
-> ⚠️ ⚠️ ⚠️  
+> ⚠️ ⚠️ ⚠️ ⚠️  
 Flask provides a local server that is intended for **testing and development purposes only**. <a href="https://flask.palletsprojects.com/en/2.3.x/security/" target="_blank">Read about security considerations here.</a> </details>
 
 ---
-
-<img src= "https://github.com/milliedavidson/CFGProject/blob/main/images/website.png">
-
----
-
-**5. Have fun 🤓**
 
 <img src= "https://github.com/milliedavidson/CFGProject/blob/main/images/demo.gif">
 
@@ -182,11 +176,11 @@ cd
 
 ---
 
-## Special thanks 🙏
+## Special thanks
 
 An enormous thank you to <a href="https://codefirstgirls.com/" target="_blank">Code First Girls</a> and <a href="https://www.clear.bank/" target="_blank">ClearBank</a> for providing us with the invaluable resources to develop our skills from ```print("Hello, World!")``` to a fully functioning web application!
 
-We are incredibly grateful for this generous opportunity ☺️
+We are incredibly grateful for this generous opportunity ☺️ 🙏
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
 

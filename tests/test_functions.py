@@ -1,9 +1,7 @@
 import unittest
-from db.functions import format_date, order_results
+from db.functions import format_date
 from model.book import Book
-from datetime import datetime
 from db.functions import (
-    find_books,
     excluded_categories,
     get_book_length,
     order_results,

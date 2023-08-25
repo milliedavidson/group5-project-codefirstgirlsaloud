@@ -1,67 +1,44 @@
 import unittest
+from db.functions import format_date, order_results
 from model.book import Book
 from datetime import datetime
 from functions import (
+    find_books,
     excluded_categories,
-    low_rating,
-    get_published_year,
     get_book_length,
-    book_in_date_range,
+    order_results,
 )
 
-
 class TestBookSearch(unittest.TestCase):
-
-    # Testing if the excluded_categories function correctly identifies a book with the catergory "young adult" 
-    # as an excluded category AND correctly identifies books with multiple catergories like "Fantasy, Romance"
-    def test_excluded_categories(self):
-        book_with_excluded_category = Book({
-            "categories": "young adult"
+    
+    # Testing if the excluded_categories function works correctly filters out 
+    # excluded categories based on the selected genre.
+    def test_excluded_categories_fiction(self):
+        
+        book_fiction = Book({
+            "categories": "Fiction"
         })
-        book_without_excluded_category = Book({
-            "categories": "Classics"
-        })
-        book_with_multiple_categories = Book({
-            "categories": "Fantasy, Romance"
-        }) 
-
-        self.assertTrue(excluded_categories(book_with_excluded_category))
-        self.assertFalse(excluded_categories(book_without_excluded_category))
-        self.assertTrue(excluded_categories(book_with_multiple_categories))
-
-    # Testing if the low_rating function correctly identifies a book with a low average rating (3.5)
-    # as actually having a low rating AND a book with a high rating (above 4.0+) as not having a low rating.
-    def test_low_rating(self):
-        low_rated_book = Book({
-            "average_rating": 3.5
-        })
-        high_rated_book = Book({
-            "average_rating": 4.5
-        })
-        book_with_high_rating = Book({
-            "average_rating": 4.8
-        })
-       
-        self.assertTrue(low_rating(low_rated_book))
-        self.assertFalse(low_rating(high_rated_book))
-        self.assertFalse(low_rating(book_with_high_rating))
-
-    # Testing if the get_published_year function correctly extracts the years (2018) and (2023)
-    # from valid published dates ("2018-05-15" and "2023-08-22") -> just two random example dates.
-    def test_get_published_year(self):
-        book_with_valid_date = Book({
-            "published_date": "2018-05-15"
-        })
-        book_with_valid_date = Book({
-            "published_date": "2023-08-22"
-        })
-        book_with_invalid_date = Book({
-            "published_date": "invalid-date"
+        book_nonfiction = Book({
+            "categories": "Non-Fiction"
         })
 
-        self.assertEqual(get_published_year(book_with_valid_date), 2018)
-        self.assertEqual(get_published_year(book_with_valid_date), 2023)
-        self.assertEqual(get_published_year(book_with_invalid_date), 0)
+        self.assertEqual(excluded_categories(book_fiction, "fiction", "Some Category"), None)
+        self.assertEqual(excluded_categories(book_fiction, "fiction", "Another Category"), book_fiction)
+        self.assertEqual(excluded_categories(book_nonfiction, "fiction", "Some Category"), book_nonfiction)
+
+    # Testing if the excluded_categories function works correctly for the non-fiction genre.
+    def test_excluded_categories_nonfiction(self):
+        
+        book_fiction = Book({
+            "categories": "Fiction"
+        })
+        book_nonfiction = Book({
+            "categories": "Non-Fiction"
+        })
+
+        self.assertEqual(excluded_categories(book_nonfiction, "non-fiction", "Some Category"), None)
+        self.assertEqual(excluded_categories(book_nonfiction, "non-fiction", "Another Category"), None)
+        self.assertEqual(excluded_categories(book_fiction, "non-fiction", "Some Category"), book_fiction)
 
     # Testing if the get_book_length function correctly categorises a book with 100 pages
     # as "short", a book with 350 pages as "medium", and a book with 550 pages as "long".
@@ -80,12 +57,46 @@ class TestBookSearch(unittest.TestCase):
         self.assertEqual(get_book_length(medium_book), "medium")
         self.assertEqual(get_book_length(long_book), "long")
 
-    # Testing if the book_in_date_range function correctly identifies a book published in 2000
-    # as within the date range (1990 to 2020) and a book published in 1970 as being outside the date range.
-    def test_book_in_date_range(self):
-        self.assertTrue(book_in_date_range(2000, 1990, 2020))
-        self.assertFalse(book_in_date_range(1970, 1990, 2020))
+    # Testing if the order_results function correctly orders books by the newest published date.
+    def test_order_results_newest(self):
+        book_1 = Book({
+            "published_date": "2022-05-15",
+            "average_rating": 4.5
+        })
+        book_2 = Book({
+            "published_date": "2023-01-20",
+            "average_rating": 3.8
+        })
 
+        self.assertEqual(order_results("newest", [book_1, book_2]), [book_2, book_1])
+    
+    # Testing if the order_results function correctly orders books by their average
+    # rating, from highest to lowest.
+    def test_order_results_top_rated(self):   
+        book_1 = Book({
+            "published_date": "2022-05-15",
+            "average_rating": 4.5
+        })
+        book_2 = Book({
+            "published_date": "2023-01-20",
+            "average_rating": 3.8
+        })
+
+        self.assertEqual(order_results("top rated", [book_1, book_2]), [book_1, book_2])
+    
+    # Testing to see if the formatted_date function correctly formats published dates
+    # and handles cases where the date might be invalid.
+    def test_formatted_date(self):
+        
+        book_with_valid_date = Book({
+            "published_date": "2019-05-15"
+        })
+        book_with_invalid_date = Book({
+            "published_date": "invalid-date"
+        })
+
+        self.assertEqual(format_date(book_with_valid_date), "15-05-2019")
+        self.assertEqual(format_date(book_with_invalid_date), "N/A")
 
 if __name__ == '__main__':
     unittest.main()

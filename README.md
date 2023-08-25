@@ -4,7 +4,7 @@
 
 # ChapterOne 📘 📘 📗 📗 📙 📙 📕 📕 
 
-<a href="#an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#testing">Testing</a> | <a href="#command-line-101-🧑‍💻">Command Line 101</a> | <a href="#contributors">Contributors</a> | <a href="#special-thanks-🙏">Special thanks</a> | <a href="#license">License</a> | 
+<a href="#an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#testing">Testing</a> | <a href="#command-line-101-🧑 🧑‍💻">Command Line 101</a> | <a href="#contributors">Contributors</a> | <a href="#special-thanks- 🙏">Special thanks</a> | <a href="#license">License</a> | 
 
 ## An overview
 
@@ -45,7 +45,7 @@ Finding your next great read can be overwhelming with the huge selection of book
 
 **1. Clone the repository**
 
-To get started, you'll need to clone the project's repository to your local machine. Open a terminal/command prompt and [navigate to the directory](#command-line-101-🧑‍💻) where you want to store the project. Then, run the following command to clone the repository:
+To get started, you'll need to clone the project's repository to your local machine. Open a terminal/command prompt and [navigate to the directory](#command-line-101-🧑🧑‍💻) where you want to store the project. Then, run the following command to clone the repository:
 
 ```bash
 git clone https://github.com/milliedavidson/CFGProject.git
@@ -81,7 +81,8 @@ This should start your Flask app and make it accessible at the local address htt
 
 Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should see your Flask application's home page, ChapterOne.
 
-> ⚠️ ⚠️ ⚠️ Flask provides a local server that is intended for **testing and development purposes only**. [Read about security considerations here.](https://flask.palletsprojects.com/en/2.3.x/security/) </details>
+> ⚠️ ⚠️ ⚠️  
+Flask provides a local server that is intended for **testing and development purposes only**. <a href="https://flask.palletsprojects.com/en/2.3.x/security/" target="_blank">Read about security considerations here.</a> </details>
 
 ---
 
@@ -173,7 +174,7 @@ To return to your user's home directory, simply use cd without any arguments:
 cd
 ```
 
-> 💡 Read more about the terminal [here.](https://ryanstutorials.net/linuxtutorial/navigation.php) </details>
+> 💡 Read more about the terminal <a href="https://ryanstutorials.net/linuxtutorial/navigation.php" target="_blank">here.</a> </details>
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
 
@@ -189,7 +190,7 @@ cd
 
 ## Special thanks 🙏
 
-An enormous thank you to [Code First Girls](https://codefirstgirls.com/) and [ClearBank](https://www.clear.bank/) for providing us with the invaluable resources to develop our skills from ```print("Hello, World!")``` to a fully functioning web application!
+An enormous thank you to <a href="https://codefirstgirls.com/" target="_blank">Code First Girls</a> and <a href="https://www.clear.bank/" target="_blank">ClearBank</a> for providing us with the invaluable resources to develop our skills from ```print("Hello, World!")``` to a fully functioning web application!
 
 We are incredibly grateful for this generous opportunity ☺️
 
@@ -208,11 +209,20 @@ This project is licensed under the [MIT License.](https://github.com/milliedavid
 ```text
 Copyright 2023 ChapterOne
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the “Software”), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial
+portions of the Software.
 
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>

@@ -1,7 +1,5 @@
-from application import create_app
+from application import app
 
-# Create the app instance using the factory function
-app = create_app()
 
 # Runs application in file
 if __name__ == "__main__":

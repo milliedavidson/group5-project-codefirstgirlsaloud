@@ -2,12 +2,13 @@ import unittest
 from db.functions import format_date, order_results
 from model.book import Book
 from datetime import datetime
-from functions import (
+from db.functions import (
     find_books,
     excluded_categories,
     get_book_length,
     order_results,
 )
+
 
 class TestBookSearch(unittest.TestCase):
     
@@ -97,6 +98,7 @@ class TestBookSearch(unittest.TestCase):
 
         self.assertEqual(format_date(book_with_valid_date), "15-05-2019")
         self.assertEqual(format_date(book_with_invalid_date), "N/A")
+
 
 if __name__ == '__main__':
     unittest.main()

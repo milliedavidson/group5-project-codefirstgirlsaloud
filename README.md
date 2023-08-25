@@ -4,7 +4,7 @@
 
 # ChapterOne 📘 📘 📗 📗 📙 📙 📕 📕 
 
-<a href="#-an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#testing">Testing</a> | <a href="#command-line-101">Command Line 101</a> | <a href="#contributors">Contributors</a> | <a href="#specialthanks">Special thanks</a> | <a href="#license">License</a> | 
+<a href="#an-overview">An overview</a> | <a href="#get-started">Get started</a> | <a href="#testing">Testing</a> | <a href="#command-line-101-🧑‍💻">Command Line 101</a> | <a href="#contributors">Contributors</a> | <a href="#special-thanks-🙏">Special thanks</a> | <a href="#license">License</a> | 
 
 ## An overview
 
@@ -14,11 +14,11 @@ Finding your next great read can be overwhelming with the huge selection of book
 
 **Key features:**
 
-✨ Get recommendations across multiple parameters like genre, category and length
-
 ✨ Discover books you may not have found on your own but will love 
 
 ✨ Simple and intuitive interface allows you to fine-tune and customize your search
+
+✨ Print out your customized reading list with just one click for easy reference
 
 ✨ Hassle-free way to find your next great read among millions of options
 
@@ -45,11 +45,19 @@ Finding your next great read can be overwhelming with the huge selection of book
 
 **1. Clone the repository**
 
+To get started, you'll need to clone the project's repository to your local machine. Open a terminal/command prompt and [navigate to the directory](#command-line-101-🧑‍💻) where you want to store the project. Then, run the following command to clone the repository:
+
+```bash
+git clone https://github.com/milliedavidson/CFGProject.git
+```
+
+This will create a local copy of the project's files and code on your machine.
+
 ---
 
 **2. Install Dependencies**
 
-Before you start, make sure you have the required packages installed. Open a terminal/command prompt and [navigate to your project directory](#command-line-101) . Run the following command to install the required packages listed in your requirements.txt file:
+Make sure you have the required packages installed. Run the following command to install the required packages listed in your requirements.txt file:
 
 ```bash
 pip install -r requirements.txt
@@ -71,11 +79,19 @@ This should start your Flask app and make it accessible at the local address htt
 
 **4. Access the Website**
 
-Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should see your Flask application's home page.
+Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should see your Flask application's home page, ChapterOne.
 
-> ⚠️ ⚠️ ⚠️ ⚠️ Flask provides a local server that is intended for **testing and development purposes only**. [Read about security considerations here.](https://flask.palletsprojects.com/en/2.3.x/security/) ⚠️ ⚠️ ⚠️ ⚠️ </details>
+> ⚠️ ⚠️ ⚠️ Flask provides a local server that is intended for **testing and development purposes only**. [Read about security considerations here.](https://flask.palletsprojects.com/en/2.3.x/security/) </details>
+
+---
 
 <img src= "https://github.com/milliedavidson/CFGProject/blob/main/images/website.png">
+
+---
+
+**5. Have fun 🤓**
+
+<img src= "https://github.com/milliedavidson/CFGProject/blob/main/images/reading-list.png">
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
 
@@ -87,13 +103,13 @@ Open a web browser and navigate to the URL http://127.0.0.1:5000/. You should se
 
 ---
 
-## Command line 101
+## Command line 101 🧑‍💻
 
 **1. Open terminal** 
 
 Open the terminal (MacOS & Linux) or command prompt (Windows) on your computer. This is the command-line interface where you can type commands.
 
-<img src= "">
+<img src= "https://github.com/milliedavidson/CFGProject/blob/main/images/terminal.png">
 
 --- 
 
@@ -109,10 +125,10 @@ pwd
 
 **3. Changing directory**
 
-To navigate to a specific directory, you use the cd command followed by the path to the directory you want to navigate to. For example, to navigate to the directory "CFGProject":
+To navigate to a specific directory, use the cd command followed by the path to the directory you want to navigate to. For example, to navigate to the "Programming" directory:
 
 ```bash
-cd /path/to/CFGProject
+cd /path/to/Documents/Programming
 ```
 
 You can also cd into a directory one by one. For example:
@@ -122,7 +138,7 @@ cd Documents
 ```
 
 ```bash
-cd CFGProject
+cd Programming
 ```
 
 ---
@@ -137,7 +153,7 @@ ls
 
 This will display the files and directories within the current directory.
 
-<img src= "">
+---
 
 **5. Navigating Up**
 
@@ -163,25 +179,41 @@ cd
 
 ---
 
-## Contributors 🧑‍💻 
+## Contributors
 
 [Olivia Boddy](https://github.com/olivia-boddy) | [Millie Davidson](https://github.com/milliedavidson) | [Jesse Musenge](https://github.com/JesseMusenge) | [Ella Newell](https://github.com/elenanewell) | [Lucy Tesco](https://github.com/lucytesco) | [Jessica Wan](https://github.com/j27wan)
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
 
---- 
+---
 
-## Special thanks
+## Special thanks 🙏
 
-An enormous thank you to Code First Girls and ClearBank for providing us with the invaluable resources to develop our skills from ```print("Hello, World!")``` to a fully functioning web application. 
+An enormous thank you to [Code First Girls](https://codefirstgirls.com/) and [ClearBank](https://www.clear.bank/) for providing us with the invaluable resources to develop our skills from ```print("Hello, World!")``` to a fully functioning web application!
 
-We are incredibly grateful for this generous opportunity ☺️ 🙏
+We are incredibly grateful for this generous opportunity ☺️
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
 
 ---
 
 ## License
+
+This project is licensed under the [MIT License.](https://github.com/milliedavidson/CFGProject/blob/main/LICENSE)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
+
+```text
+Copyright 2023 ChapterOne
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
 
 <div align="right">[ <a href="#an-overview">↑ Back to top ↑</a> ]</div>
 

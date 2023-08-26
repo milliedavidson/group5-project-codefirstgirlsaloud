@@ -20,15 +20,15 @@ def call_api(subject, page, timeout=10):
     Call API endpoint and return results.
 
     Parameters:
-    subject (str): Search term
-    page (int): Page number of results
-    timeout (int): API request timeout in seconds
+        subject (str): Search term
+        page (int): Page number of results
+        timeout (int): API request timeout in seconds
 
     Raises:
-    ApiError: Custom exception for any API errors
+        ApiError: Custom exception for any API errors
 
     Returns:
-    list: List of result items
+        list: List of result items
     """
 
     if not isinstance(subject, str):

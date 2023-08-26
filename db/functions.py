@@ -146,7 +146,9 @@ def find_books(
 
 # HELPER FUNCTIONS
 def get_book_id(book):
-    """Pulls the title and authors from book dict to make an id"""
+    """
+    Pulls the title and authors from book dict to make an id
+    """
     try:
         return book.title, book.authors
     except AttributeError as exc:
@@ -216,7 +218,9 @@ def get_book_length(book):
 
 
 def format_date(book):
-    """Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD"""
+    """
+    Changes publish date to be DD-MM-YYYY rather than YYYY-MM-DD
+    """
     try:
         unformatted_date = datetime.strptime(book.published_date, "%d-%m-%Y")
         return book.published_date  # If already in the correct format, return as is
@@ -231,12 +235,16 @@ def format_date(book):
 
 
 def format_book_published(book):
-    """Formats the published date for HTML"""
+    """
+    Formats the published date for HTML
+    """
     return f"{format_date(book)}\n"
 
 
 def format_book_rating(book):
-    """Formats the rating for HTML"""
+    """
+    Formats the rating for HTML
+    """
     try:
         book_rating = book.average_rating
         if book_rating == 0:
@@ -249,12 +257,16 @@ def format_book_rating(book):
 
 
 def format_book_length(book):
-    """Formats the book length for HTML"""
+    """
+    Formats the book length for HTML
+    """
     return f"{get_book_length(book).capitalize()}, {book.page_count} pages"
 
 
 def order_results(order_by, results):
-    """Sorts the results based on the order_by user input selection"""
+    """
+    Sorts the results based on the order_by user input selection
+    """
     sorted_results = []
 
     if order_by == "newest":

@@ -3,7 +3,7 @@
 {% block main_content %}
 
 <div class="book-container">
-    <h4>Your reading list</h4>
+    <h4>Your Reading List</h4>
     <hr>
 
     {% for book in books %}
@@ -23,7 +23,6 @@
             <div class="categories-rating">
                 <p><strong>Categories: </strong> {{ book['categories'] }}</p>
                 <p><strong>Rating: </strong> {{ format_book_rating(book) }}</p>
-                <!--<p><strong>Length: </strong> {{ format_book_length(book) }}</p>-->
             </div>
 
         </div>
@@ -36,14 +35,16 @@
 
         <img src="{{ book['thumbnail'] }}" alt="{{ book['title'] }}">
     </div>
+
+    {% if not loop.last %}
     <hr>
+    {% endif %}
 
     {% endfor %}
 
-    <div class="user-options">
-        <button class="user-print" onclick="window.print();">Print Your Recommendations</button>
-    </div>
-
+</div>
+<div class="print-page">
+    <button class="button1" onclick="window.print();">Print Your Recommendations</button>
 </div>
 
 

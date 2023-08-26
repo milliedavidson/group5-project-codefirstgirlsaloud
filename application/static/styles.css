@@ -27,13 +27,13 @@ header * {
 }
 
 .website-name{
-    padding: 10px; /* keeps title off edge of screen */
+    padding: 10px 25px; /* keeps title off edge of screen */
     font-family: Corben;
     color: #fefae0;
 }
 
 .nav {
-    padding: 10px; /* keeps nav  bar off edge of screen */
+    padding: 10px 50px; /* keeps nav  bar off edge of screen */
 }
 
 .nav a {
@@ -71,6 +71,7 @@ nav a:hover {
     font-style: italic;
     font-size: 18px;
     color: #283618;
+    padding-bottom: 50px;
 }
 
 /* FILTERS */
@@ -139,6 +140,13 @@ form { /* position of filter options using flexbox */
     margin: 50px; /* puts 'find books' button at bottom of page */
 }
 
+.print-page {
+    justify-content: center;
+    margin: 50px 25px 50px;
+    display: flex;
+    align-self: center;
+}
+
 
 .button { /* edits appearance of 'find books' button */
     background-color: #dbd3b480;
@@ -150,10 +158,18 @@ form { /* position of filter options using flexbox */
     cursor: pointer;
     font-family: Nobile;
     font-size: 15px;
+    border-radius: 4px; /* rounded corners on 'find books' button*/
 }
 
-
-.button {
+.button1 { /* edits appearance of 'find books' button */
+    background-color: #283618;
+    border: none;
+    color: #fefae0;
+    padding: 10px 24px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Nobile;
+    font-size: 15px;
     border-radius: 4px; /* rounded corners on 'find books' button*/
 }
 
@@ -192,7 +208,7 @@ form { /* position of filter options using flexbox */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 15px
+    margin-bottom: 10px
   }
 
   .title-author h3 {

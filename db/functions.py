@@ -229,8 +229,7 @@ def format_date(book):
             unformatted_date = datetime.strptime(book.published_date, "%Y-%m-%d")
             formatted_date = unformatted_date.strftime("%d-%m-%Y")
             return formatted_date
-        except (AttributeError, ValueError):
-            traceback.print_exc()
+        except ValueError:
             return "N/A"
 
 

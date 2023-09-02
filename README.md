@@ -48,7 +48,7 @@ Finding your next great read can be overwhelming with the huge selection of book
 To get started, you'll need to clone the project's repository to your local machine. Open a terminal/command prompt and [navigate to the directory](#command-line-101) where you want to store the project. Then, run the following command to clone the repository:
 
 ```bash
-git clone https://github.com/milliedavidson/CFGProject.git
+git clone https://github.com/milliedavidson/group5-project-codefirstgirlsaloud.git
 ```
 
 This will create a local copy of the project's files and code on your machine.
